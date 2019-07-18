@@ -1,4 +1,5 @@
-view/*
-.bak*
 .DS_Store
 .netrwhist
+.bak*
+view/*
+!view/._
