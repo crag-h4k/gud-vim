@@ -55,9 +55,6 @@
 [submodule "bundle/vimpyter"]
 	path = bundle/vimpyter
 	url = https://github.com/szymonmaszke/vimpyter
-[submodule "bundle/vim-splunk"]
-	path = bundle/vim-splunk
-	url = https://github.com/yorokobi/vim-splunk
 [submodule "bundle/supertab"]
 	path = bundle/supertab
 	url = https://github.com/ervandew/supertab
@@ -76,3 +73,6 @@
 [submodule "bundle/nerdcommenter"]
 	path = bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter
+[submodule "bundle/splunk.vim"]
+	path = bundle/splunk.vim
+	url = https://github.com/vim-scripts/splunk.vim
