@@ -52,8 +52,8 @@ set hidden
 " * Remaps *===========================
 "
 "MacBook Touchbar
-inoremap jj <ESC>
-cnoremap jj <ESC>
+inoremap fj <ESC>
+cnoremap fj <ESC>
 "Search and Replace
 nmap sr <ESC>:%s///gc
 "Delete all below current line
@@ -64,7 +64,6 @@ vnoremap <Space> za
 """""Refocus fold
 nnoremap ,z zMzvzz
 """"unfold top regardless of cursor location
-"nnoremap U zCzO
 "
 " * Folding *===========================
 set foldmethod=indent
@@ -92,14 +91,14 @@ set wildmode=list:longest,full
 "
 " * Python Stuff *===========================
 " PEP 8 Indentation
-au BufNewFile, BufRead *.py
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
+"au BufNewFile, BufRead *.py
+    "\set tabstop=4
+    "\ set softtabstop=4
+    "\ set shiftwidth=4
+    "\ set textwidth=79
+    "\ set expandtab
+    "\ set autoindent
+    "\ set fileformat=unix
     "\ set omnifunc=pythoncomplete#Complete
 " flag unneeded whitespace
 "au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
@@ -143,70 +142,5 @@ let g:airline_powerline_fonts = 1
 let g:airline_statusline_ontop = 1
 ""* Plug-in Repos *===========================
 function _commentblock()
-    [submodule "bundle/bro.vim"]
-        path = bundle/bro.vim
-        url = https://github.com/mephux/bro.vim.git
-    [submodule "bundle/bro"]
-        path = bundle/bro
-        url = https://github.com/mephux/bro.vim.git
-    [submodule "bundle/rainbow"]
-        path = bundle/rainbow
-        url = https://github.com/luochen1990/rainbow
-    [submodule "bundle/vim-renamer"]
-        path = bundle/vim-renamer
-        url = git://github.com/qpkorr/vim-renamer
-    [submodule "bundle/syntastic"]
-        path = bundle/syntastic
-        url = https://github.com/vim-syntastic/syntastic.git
-    [submodule "bundle/vim-flake8"]
-        path = bundle/vim-flake8
-        url = https://github.com/nvie/vim-flake8
-    [submodule "bundle/vim-colorschemes"]
-        path = bundle/vim-colorschemes
-        url = https://github.com/flazz/vim-colorschemes
-    [submodule "bundle/deoplete.nvim"]
-        path = bundle/deoplete.nvim
-        url = https://github.com/Shougo/deoplete.nvim
-    [submodule "bundle/vim-hug-neovim-rpc"]
-        path = bundle/vim-hug-neovim-rpc
-        url = https://github.com/roxma/vim-hug-neovim-rpc
-    [submodule "bundle/nvim-yarp"]
-        path = bundle/nvim-yarp
-        url = https://github.com/roxma/nvim-yarp
-    [submodule "bundle/completor.vim"]
-        path = bundle/completor.vim
-        url = https://github.com/maralla/completor.vim.git
-    [submodule "bundle/powerline"]
-        path = bundle/powerline
-        url = https://github.com/powerline/powerline
-    [submodule "bundle/vim-airline"]
-        path = bundle/vim-airline
-        url = https://github.com/vim-airline/vim-airline
-    [submodule "bundle/vim-airline-themes"]
-        path = bundle/vim-airline-themes
-        url = https://github.com/vim-airline/vim-airline-themes
-    [submodule "bundle/vim-fugitive"]
-        path = bundle/vim-fugitive
-        url = https://github.com/tpope/vim-fugitive.git
-    [submodule "bundle/vim-yankstack"]
-        path = bundle/vim-yankstack
-        url = https://github.com/maxbrunsfeld/vim-yankstack
-    [submodule "bundle/ale"]
-        path = bundle/ale
-        url = https://github.com/w0rp/ale.git
-    [submodule "bundle/rust.vim"]
-        path = bundle/rust.vim
-        url = https://github.com/rust-lang/rust.vim/
-    [submodule "bundle/vimpyter"]
-        path = bundle/vimpyter
-        url = git@github.com:szymonmaszke/vimpyter.git
-    [submodule "bundle/vim-splunk"]
-        path = bundle/vim-splunk
-        url = https://github.com/yorokobi/vim-splunk.git
-    [submodule "bundle/supertab"]
-        path = bundle/supertab
-        url = https://github.com/ervandew/supertab
-    [submodule "bundle/jedi-vim"]
-        path = bundle/jedi-vim
-        url = git@github.com:davidhalter/jedi-vim.git
+
 endfunction
