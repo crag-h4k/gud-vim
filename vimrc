@@ -91,18 +91,18 @@ set wildmode=list:longest,full
 "
 " * Python Stuff *===========================
 " PEP 8 Indentation
-"au BufNewFile, BufRead *.py
-    "\set tabstop=4
-    "\ set softtabstop=4
-    "\ set shiftwidth=4
-    "\ set textwidth=79
-    "\ set expandtab
-    "\ set autoindent
-    "\ set fileformat=unix
-    "\ set omnifunc=pythoncomplete#Complete
-" flag unneeded whitespace
-"au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+au BufNewFile, BufRead *.py
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set textwidth=79
+set expandtab
+set autoindent
+set fileformat=unix
+set omnifunc=pythoncomplete#Complete
 let python_highlight_all=1
+"
+"au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 "
 " * Tabbing *===========================
 set smarttab
@@ -139,7 +139,7 @@ let g:jedi#show_call_signatures = "1"
 let g:jedi#use_splits_not_buffers = "right"
 let g:airline_theme = 'dracula'
 let g:airline_powerline_fonts = 1
-let g:airline_statusline_ontop = 1
+" let g:airline_statusline_ontop = 1
 ""* Plug-in Repos *===========================
 function _commentblock()
 
