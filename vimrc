@@ -1,30 +1,4 @@
-"deadlift1226 vim config
-"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⣤⣀⡀⠀⠀⠀⠀⠀⠀⣀⣀⣠⣤⣤⣀⣀⡀
-"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢶⣶⣤⣤⣄⣀⣀⣀⣽⣿⣉⠉⠉⠉⠉⣉⠉⠀⠀⠀⠀⠘⠛⠛⠛⠛⠛⠛⣿⣶⣦⣤⣀⠀
-"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣀⣀⣀⣀⣀⣀⣙⣿⣶⣤⠀⢀⠀⣴⣶⡾⠿⠛⠛⠙⠛⠿⣦⠀⠀⠀⠀⠀⠀⠠⠶⠛⠛⠉⠉⠉⠻⣿⠻⣦⡀
-"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⣿⣯⣉⣉⠀⢀⢀⡄⠠⣞⠛⠉⠁⢀⣀⣶⣤⣸⣶⣤⣠⣾⣄⠈⠀⢀⠀⠀⠴⣶⣒⠲⣶⣿⣛⠛⣿⠟⠀⣈⣉⣭⣿⣷⣶⣤⣤⣀⣀⠀
-"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⢶⣦⣤⣤⣤⠶⠾⠛⠛⣿⠉⠉⠉⣽⠟⠀⠀⠀⠛⣦⣀⠀⣦⣤⣤⣀⠀⠀⠀⠁⠀⠉⠛⠓⠍⣿⣄⠀⠈⠛⣦⣀⣠⣿⠛⠉⠀⠀⠀⠤⠤⢤⣤⣀⡀⠉⠻⣿⡛⠛⣿
-"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣨⣿⣿⠿⠿⢾⣿⠁⠀⠀⠚⠛⣿⣶⣤⣤⣤⠖⠈⠻⣦⡀⠀⠈⠉⠉⠉⠉⠉⠛⠀⠀⠀⠘⠁⢀⣠⡴⠞⢛⣉⣀⠀⢐⠈⠉⠻⣶⣄⢀⠠⠀⠈⠻⣄⠀⠙⣾⠋
-"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠻⣿⣛⠉⠉⠁⠀⢠⡿⠀⠀⠀⠛⣿⣶⣦⣤⣴⣿⠁⠀⠀⠀⣿⠀⠀⠀⠀⠉⠛⠻⠟⠛⠛⠉⣍⠛⠀⠀⢀⡴⠋⠀⣀⣶⣿⣉⠀⠉⠛⠷⣦⣀⡀⠀⠈⠻⣦⣀⠠⠀⠀⣠⣿⠡
-"⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣤⡶⠟⣿⣿⠟⣻⣿⠀⠀⠀⢀⣾⠁⠀⠀⠀⢀⡿⠀⠀⠀⠀⡿⣀⣀⣠⣤⣤⠀⠀⠀⠀⠛⠉⠀⠀⠀⣰⠁⠀⣠⡿⠙⣧⣴⠻⣿⠉⣿⣿⠶⣤⣉⣻⣷⣶⣤⣀⣈⣤⡿⠉
-"⠀⠀⠀⠀⠀⠉⠻⣿⣭⣀⡀⠀⣀⣾⠉⠀⠀⣿⠛⠉⠙⠛⣿⠀⠀⠀⠀⣠⣿⠿⠛⠛⠛⣿⠋⠀⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣤⠛⣿⢿⣤⠴⡄⠀⠀⠉⠀⠈⠋⠁⠘⣧⡴⠿⡟⢠⠿⠁⠀
-"⠀⠀⠀⠀⠀⣀⣤⡾⠛⣩⢿⣿⣯⣤⣤⣤⣾⠁⠀⠀⠀⣿⡿⠛⠛⠛⠉⣿⠀⠀⠀⠀⠀⣿⠀⠀⠀⠀⠀⣿⣀⣀⣠⣤⣶⠀⠀⠀⠀⠀⠿⠀⢈⠀⠈⠻⣿⣉⣷⠀⣀⡄⠀⠀⠀⠠⠀⠚⠚⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-"⠀⠉⠻⣿⣛⠁⠀⠀⣾⠉⠀⠀⠀⠀⢀⣾⣏⣀⣀⣀⣴⡟⠀⠀⠀⠀⢠⣿⠀⠀⠀⣀⣴⣷⣶⠶⠶⢶⡿⠉⠀⢀⠀⠀⣿⠀⠀⠀⠀⠀⡀⠀⠀⠈⠲⣤⠀⠀⠙⠿⣤⣿⡾⣷⣤⠶⢻⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-"⠀⠀⠀⠀⠀⠉⠙⣿⣷⣤⣤⣤⣤⣶⣿⠉⠠⠀⠀⠀⡿⠁⠀⢀⣀⣤⣿⠛⠛⠉⠉⢹⠋⠀⠀⠀⠀⣸⠁⠀⠀⠀⠀⢰⡟⠀⣀⣠⣶⠋⠀⢀⣠⣤⣴⣤⣄⠙⠲⢤⠀⠀⠙⠿⣦⣾⢁
-"⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⠀⠀⢠⡏⠀⠀⠀⢀⣠⣿⠛⠉⠉⠈⣿⠀⠀⠀⠀⠀⣾⠀⠀⠀⠀⢀⣿⣶⢶⣶⠿⠛⢻⠟⢉⣿⠀⢀⣴⠿⠉⢀⠀⠀⠀⠉⣿⡀⠀⠀⣄⠀⠀⡿⠐
-"⠀⠀⠀⠀⠀⠀⠀⢸⣿⣶⡶⠶⢿⣿⠟⠛⠛⠛⠛⣿⠀⠀⠀⠀⠀⣿⠀⠀⠀⢀⣴⣿⠿⠿⠿⣿⠟⠀⠀⢰⣯⠀⠀⣀⣤⣿⠃⢠⣿⠁⠀⠀⠀⠀⠀⠀⠀⠛⠛⠛⣿⣥⡶⠋
-"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠇⠀⠀⠀⠀⢸⡿⣀⣀⣀⣤⣾⠿⠛⠛⠉⣿⠋⠀⠀⠀⠀⣾⡀⠀⠀⠸⠟⢻⣿⠉⢀⣾⣦⣿⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⠟
-"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⣤⣠⣤⣤⣶⡿⠉⠁⠀⠀⢺⡇⠀⠀⠀⠀⢸⡀⠀⠀⠀⢀⣿⣄⣠⣤⣤⡾⢿⡇⢠⡟⠀⢻⠃⠀
-"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡿⠀⠀⠀⠀⠀⣾⠂⠀⠀⠀⠀⣸⣿⣤⣶⠿⠋⠉⠀⣿⠀⠀⢠⣿⣷⣿⠀
-"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣀⣀⣀⣀⣴⣿⣿⠟⠛⠛⠛⢻⡿⠀⠀⠀⠀⠀⢸⣿⠀⣴⠟⠀⠹⠀
-"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠀⠀⠀⢠⣿⠀⠀⠀⠀⠀⢸⡇⢀⣀⣠⣤⡾⢛⣿⣴⡟
-"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇⠀⠀⠀⣀⣤⣿⠛⠉⢻⡏⠀⢠⣿⠛⣿⡇
-"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠉⢹⡿⠀⠀⠀⢸⣷⢠⣿⠀⠀⠈⠀
-"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⡇⠀⠀⣴⠟⢿⣿⠂
-"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⡿⠁⠀⠀⠙⠀
-"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⡿
-"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠁
-
+"
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 syntax on
@@ -141,6 +115,43 @@ let g:airline_theme = 'dracula'
 let g:airline_powerline_fonts = 1
 " let g:airline_statusline_ontop = 1
 ""* Plug-in Repos *===========================
-function _commentblock()
-
-endfunction
+" 
+""* Removed Submodules *===========================
+" vim-javascript
+" vim-misc
+" vim-notes
+" vim-ruby
+" vim-yankstack
+" [submodule "bundle/ale"]
+" 	path = bundle/ale
+" 	url = https://github.com/w0rp/ale
+" [submodule "bundle/jedi-vim"]
+"	path = bundle/jedi-vim
+"	url = https://github.com/davidhalter/jedi-vim
+" [submodule "bundle/nerdcommenter"]
+"	path = bundle/nerdcommenter
+"	url = https://github.com/scrooloose/nerdcommenter
+"[submodule "bundle/nerdtree"]
+"	path = bundle/nerdtree
+"	url = https://github.com/scrooloose/nerdtree
+" [submodule "bundle/rust.vim"]
+"	path = bundle/rust.vim
+"	url = https://github.com/rust-lang/rust.vim
+" [submodule "bundle/syntastic"]
+"	path = bundle/syntastic
+"	url = https://github.com/vim-syntastic/syntastic
+" [submodule "bundle/vim-javascript"]
+"	path = bundle/vim-javascript
+"	url = https://github.com/pangloss/vim-javascript
+" [submodule "bundle/vim-ruby"]
+" 	path = bundle/vim-ruby
+"	url = https://github.com/vim-ruby/vim-ruby
+" [submodule "bundle/vim-yankstack"]
+" 	path = bundle/vim-yankstack
+"	url = https://github.com/maxbrunsfeld/vim-yankstack
+" [submodule "bundle/vim-notes"]
+"	path = bundle/vim-notes
+"	url = https://github.com/xolox/vim-notes.git
+" [submodule "bundle/vim-misc"]
+" 	path = bundle/vim-misc
+"	url = https://github.com/xolox/vim-misc
