@@ -4,6 +4,7 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 filetype plugin on 
+set clipboard=unnamed
 
 " * Colors *===========================
 set t_Co=256
@@ -67,9 +68,10 @@ set wildmode=list:longest,full
 " PEP 8 Indentation
 au BufNewFile, BufRead *.py
 set tabstop=4
+set ts=4
 set softtabstop=4
 set shiftwidth=4
-set textwidth=79
+" set textwidth=79
 set expandtab
 set autoindent
 set fileformat=unix
