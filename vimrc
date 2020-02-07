@@ -113,7 +113,7 @@ set updatetime=500
 let g:macdown_marked_programme = "misaka"
 let g:jedi#show_call_signatures = "1"
 let g:jedi#use_splits_not_buffers = "right"
-let g:airline_theme = 'dracula'
+"let g:airline_theme = 'dracula'
 let g:airline_powerline_fonts = 1
 " let g:airline_statusline_ontop = 1
 ""* Plug-in Repos *===========================
