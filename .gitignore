@@ -2,7 +2,6 @@
 ._.DS_Store
 .bak*
 .netrwhist
-view/*
-!view/._
 venv/*
-!venv/._
+view/*
+!view/test.py
