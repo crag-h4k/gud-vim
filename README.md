@@ -6,20 +6,22 @@ This is a pretty good vim setup.
 ## Install
 
 ```
-git clone https://github.com/deadlift1226/gud-vim.git --recursive
-ln -s vimrc ~/.vimrc
-
+git clone https://github.com/deadlift1226/gud-vim.git $HOME/.vim --recursive
+ln -s $HOME/.vim/vimrc ~/.vimrc
 ```
 
-The only external dependancy (that I can think of right now) is jedi, which can be install via apt or pip as follows:
+I have this setup to use a Python3 Virtual Environment
+
+Create a virtual environment with 
 
 ```bash
-
-sudo pip install jedi
+python3 -m venv venv
 ```
 
-or
+Then activate your virtual environment and install the dependancies
 
 ```bash
-sudo apt install python3-jedi
+source venv/bin/activate
+pip install -r requirements.txt
 ```
+

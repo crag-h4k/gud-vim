@@ -1,22 +1,21 @@
 "
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
+set runtimepath+=~/.vim
 syntax on
-filetype plugin indent on
 filetype plugin on 
-set clipboard=unnamed
-
+filetype plugin indent on
+let g:python_host_prog='/root/.vim/venv/bin/python2'
+let g:python3_host_prog='/root/.vim/venv/bin/python3'
 " * Colors *===========================
 set t_Co=256
 colorscheme dracula
 set encoding=utf-8
 "
-"set omnifunc=syntaxcomplete#Complete
-set runtimepath+=~/.vim
 set number
 set mouse+=a
-"set clipboard=unnamed
-"
+set clipboard=unnamed
+" 
 " * Searching *===========================
 set ignorecase
 set smartcase
@@ -29,10 +28,7 @@ set hidden
 "MacBook Touchbar
 inoremap fj <ESC>
 cnoremap fj <ESC>
-"Search and Replace
-nmap sr <ESC>:%s///gc
-"Delete all below current line
-nmap db <ESC>:+,$d
+"
 " set buffers to leave off where left
 nnoremap <Space> za
 vnoremap <Space> za
@@ -48,8 +44,11 @@ set nofoldenable
 "
 " Buffer *===========================
 "buffers to save cursor location
-au BufWinLeave * mkview
-au BufWinEnter * silent loadview
+" au BufWinLeave * mkview
+"au BufWinEnter * silent loadview
+if has("autocmd")
+      au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+  endif
 "
 " Security *===========================
 " remember :X to encrypt, to remove passwd :X and leave blank
@@ -71,14 +70,11 @@ set tabstop=4
 set ts=4
 set softtabstop=4
 set shiftwidth=4
-" set textwidth=79
 set expandtab
 set autoindent
 set fileformat=unix
-set omnifunc=pythoncomplete#Complete
+" set omnifunc=pythoncomplete#Complete
 let python_highlight_all=1
-"
-"au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 "
 " * Tabbing *===========================
 set smarttab
@@ -89,7 +85,7 @@ set expandtab
 nnoremap<C-S-Enter> :tabe<CR>
 nnoremap<C-S-tab> :tabp<CR>
 nnoremap<C-tab>   :tabn<CR>
-" * Default Indent *===========================
+" * Default Indent *=====================
 set ai
 set si
 set wrap
@@ -98,8 +94,8 @@ set autoindent
 " * Noise *===========================
 set noerrorbells
 set novisualbell
+set belloff=all
 set tm=500
-"
 " * Typos *===========================
 command! Q q
 command! W w
@@ -107,53 +103,42 @@ command! WQ wq
 command! Wq wq
 "
 "* Plug-in Options *===========================
-let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle 
+" remap nerdtree to Ctrl + n
+let g:rainbow_active=1
 let g:SuperTabDefaultCompletionType = "<c-n>"
 set updatetime=500
-let g:macdown_marked_programme = "misaka"
 let g:jedi#show_call_signatures = "1"
 let g:jedi#use_splits_not_buffers = "right"
-"let g:airline_theme = 'dracula'
-let g:airline_powerline_fonts = 1
-" let g:airline_statusline_ontop = 1
-""* Plug-in Repos *===========================
-" 
-""* Removed Submodules *===========================
-" vim-javascript
-" vim-misc
-" vim-notes
-" vim-ruby
-" vim-yankstack
-" [submodule "bundle/ale"]
-" 	path = bundle/ale
-" 	url = https://github.com/w0rp/ale
-" [submodule "bundle/jedi-vim"]
-"	path = bundle/jedi-vim
-"	url = https://github.com/davidhalter/jedi-vim
-" [submodule "bundle/nerdcommenter"]
-"	path = bundle/nerdcommenter
-"	url = https://github.com/scrooloose/nerdcommenter
-"[submodule "bundle/nerdtree"]
-"	path = bundle/nerdtree
-"	url = https://github.com/scrooloose/nerdtree
-" [submodule "bundle/rust.vim"]
-"	path = bundle/rust.vim
-"	url = https://github.com/rust-lang/rust.vim
-" [submodule "bundle/syntastic"]
-"	path = bundle/syntastic
-"	url = https://github.com/vim-syntastic/syntastic
-" [submodule "bundle/vim-javascript"]
-"	path = bundle/vim-javascript
-"	url = https://github.com/pangloss/vim-javascript
-" [submodule "bundle/vim-ruby"]
-" 	path = bundle/vim-ruby
-"	url = https://github.com/vim-ruby/vim-ruby
-" [submodule "bundle/vim-yankstack"]
-" 	path = bundle/vim-yankstack
-"	url = https://github.com/maxbrunsfeld/vim-yankstack
-" [submodule "bundle/vim-notes"]
-"	path = bundle/vim-notes
-"	url = https://github.com/xolox/vim-notes.git
-" [submodule "bundle/vim-misc"]
-" 	path = bundle/vim-misc
-"	url = https://github.com/xolox/vim-misc
+" let g:jedi#use_tabs_not_buffers=1
+" let g:completor_python_binary='./venv/bin/python'
+" Jedi
+" let g:jedi#auto_initialization = 1
+" let g:jedi#completions_enabled = 0
+" let g:jedi#auto_vim_configuration = 0
+" let g:jedi#smart_auto_mappings = 0
+" let g:jedi#popup_on_dot = 0
+" let g:jedi#completions_command = ""
+" let g:jedi#show_call_signatures = "1"
+" let g:jedi#show_call_signatures_delay = 0
+" let g:jedi#use_tabs_not_buffers = 0
+" let g:jedi#show_call_signatures_modes = 'ni'  " ni = also in normal mode
+" let g:jedi#enable_speed_debugging=0
+" NERDTree
+map <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "♻",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "☭",
+    \ "Clean"     : "♥",
+    \ 'Ignored'   : '☹',
+    \ "Unknown"   : "?"
+    \ }
+" * Status Line *=============================
+let g:lightline = {
+      \ 'colorscheme': 'darcula',
+      \ }
+set laststatus=2
