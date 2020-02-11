@@ -1,9 +1,3 @@
-[submodule "bundle/bro.vim"]
-	path = bundle/bro.vim
-	url = https://github.com/mephux/bro.vim
-[submodule "bundle/completor.vim"]
-	path = bundle/completor.vim
-	url = https://github.com/maralla/completor.vim
 [submodule "bundle/rainbow"]
 	path = bundle/rainbow
 	url = https://github.com/luochen1990/rainbow
