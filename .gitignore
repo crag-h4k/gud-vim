@@ -1,5 +1,7 @@
 .DS_Store
-.netrwhist
+._.DS_Store
 .bak*
-view/*
+.netrwhist
+test.py
 !view/._
+view/*
