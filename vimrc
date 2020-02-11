@@ -3,8 +3,10 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 set runtimepath+=~/.vim
 syntax on
-filetype plugin indent on
 filetype plugin on 
+filetype plugin indent on
+let g:python_host_prog='/root/.vim/venv/bin/python2'
+let g:python3_host_prog='/root/.vim/venv/bin/python3'
 " * Colors *===========================
 set t_Co=256
 colorscheme dracula
@@ -26,10 +28,7 @@ set hidden
 "MacBook Touchbar
 inoremap fj <ESC>
 cnoremap fj <ESC>
-"Search and Replace
-nmap sr <ESC>:%s///gc
-"Delete all below current line
-nmap db <ESC>:+,$d
+"
 " set buffers to leave off where left
 nnoremap <Space> za
 vnoremap <Space> za
@@ -45,8 +44,11 @@ set nofoldenable
 "
 " Buffer *===========================
 "buffers to save cursor location
-au BufWinLeave * mkview
-au BufWinEnter * silent loadview
+" au BufWinLeave * mkview
+"au BufWinEnter * silent loadview
+if has("autocmd")
+      au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+  endif
 "
 " Security *===========================
 " remember :X to encrypt, to remove passwd :X and leave blank
@@ -71,7 +73,7 @@ set shiftwidth=4
 set expandtab
 set autoindent
 set fileformat=unix
-set omnifunc=pythoncomplete#Complete
+" set omnifunc=pythoncomplete#Complete
 let python_highlight_all=1
 "
 " * Tabbing *===========================
@@ -102,12 +104,27 @@ command! Wq wq
 "
 "* Plug-in Options *===========================
 " remap nerdtree to Ctrl + n
-map <C-n> :NERDTreeToggle<CR>
 let g:rainbow_active=1
 let g:SuperTabDefaultCompletionType = "<c-n>"
 set updatetime=500
 let g:jedi#show_call_signatures = "1"
 let g:jedi#use_splits_not_buffers = "right"
+" let g:jedi#use_tabs_not_buffers=1
+" let g:completor_python_binary='./venv/bin/python'
+" Jedi
+" let g:jedi#auto_initialization = 1
+" let g:jedi#completions_enabled = 0
+" let g:jedi#auto_vim_configuration = 0
+" let g:jedi#smart_auto_mappings = 0
+" let g:jedi#popup_on_dot = 0
+" let g:jedi#completions_command = ""
+" let g:jedi#show_call_signatures = "1"
+" let g:jedi#show_call_signatures_delay = 0
+" let g:jedi#use_tabs_not_buffers = 0
+" let g:jedi#show_call_signatures_modes = 'ni'  " ni = also in normal mode
+" let g:jedi#enable_speed_debugging=0
+" NERDTree
+map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "♻",
     \ "Staged"    : "✚",
