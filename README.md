@@ -6,7 +6,7 @@ This is a pretty good vim setup.
 ## Install
 
 ```
-git clone https://github.com/deadlift1226/gud-vim.git $HOME/.vim --recursive
+git clone https://github.com/git-gud-1/gud-vim.git $HOME/.vim --recursive
 ln -s $HOME/.vim/vimrc ~/.vimrc
 ```
 
