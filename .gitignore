@@ -3,6 +3,7 @@
 .bak*
 .netrwhist
 view/*
-!view/._
 venv/*
-!venv/._
+venv/*
+view/*
+!view/test.py
