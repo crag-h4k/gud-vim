@@ -109,6 +109,16 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 set updatetime=500
 let g:jedi#show_call_signatures = "1"
 let g:jedi#use_splits_not_buffers = "right"
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
+let g:syntastic_python_checkers = ['pylint']
 " let g:jedi#use_tabs_not_buffers=1
 " let g:completor_python_binary='./venv/bin/python'
 " Jedi
