@@ -13,7 +13,6 @@ if __name__ == '__main__':
     from sys import argv
     from os import system, path
 
-    path
     if argv[1] is not None:
         result = do_something(argv[1],argv[1],argv[1])
     else:
