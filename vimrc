@@ -152,3 +152,4 @@ let g:lightline = {
       \ 'colorscheme': 'darcula',
       \ }
 set laststatus=2
+packloadall
