@@ -46,3 +46,9 @@
 [submodule "bundle/vim-prettier"]
 	path = bundle/vim-prettier
 	url = https://github.com/prettier/vim-prettier.git
+[submodule "bundle/bundle/dracula"]
+	path = bundle/bundle/dracula
+	url = git@github.com:dracula/vim.git
+[submodule "bundle/instant-markdown"]
+	path = bundle/instant-markdown
+	url = git@github.com:instant-markdown/vim-instant-markdown.git

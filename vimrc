@@ -5,8 +5,8 @@ set runtimepath+=~/.vim
 syntax on
 filetype plugin on 
 filetype plugin indent on
-let g:python_host_prog='/root/.vim/venv/bin/python2'
-let g:python3_host_prog='/root/.vim/venv/bin/python3'
+let g:python_host_prog='$HOME/.vim/venv/bin/python2'
+let g:python3_host_prog='$HOME/.vim/venv/bin/python3'
 " * Colors *===========================
 set t_Co=256
 colorscheme dracula
@@ -120,7 +120,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
 let g:syntastic_python_checkers = ['pylint']
 " let g:jedi#use_tabs_not_buffers=1
-" let g:completor_python_binary='./venv/bin/python'
+let g:completor_python_binary='$HOME/.vim/venv/bin/python'
 " Jedi
 " let g:jedi#auto_initialization = 1
 " let g:jedi#completions_enabled = 0
@@ -135,7 +135,7 @@ let g:syntastic_python_checkers = ['pylint']
 " let g:jedi#enable_speed_debugging=0
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
-let g:NERDTreeIndicatorMapCustom = {
+let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Modified"  : "♻",
     \ "Staged"    : "✚",
     \ "Untracked" : "✭",
@@ -153,3 +153,6 @@ let g:lightline = {
       \ }
 set laststatus=2
 packloadall
+" * Instant Markdown *=======================
+set shell=bash\ -i
+
