@@ -9,8 +9,9 @@ let g:python_host_prog='$HOME/.vim/venv/bin/python2'
 let g:python3_host_prog='$HOME/.vim/venv/bin/python3'
 " * Colors *===========================
 set t_Co=256
-colorscheme dracula
 set encoding=utf-8
+colorscheme dracula
+" colorscheme wombat
 "
 set number
 set mouse+=a
@@ -77,11 +78,16 @@ set fileformat=unix
 let python_highlight_all=1
 "
 " * Tabbing *===========================
+set smartindent
+set tabstop=4
 set smarttab
 set shiftwidth=4
-set tabstop=4
 set softtabstop=4
 set expandtab
+" Displays '-' for trailing space, '>-' for tabs and '_' for non breakable
+" space
+set listchars=tab:>-,trail:-,nbsp:_
+set list
 nnoremap<C-S-Enter> :tabe<CR>
 nnoremap<C-S-tab> :tabp<CR>
 nnoremap<C-tab>   :tabn<CR>

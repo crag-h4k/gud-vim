@@ -7,3 +7,4 @@ venv/*
 venv/*
 view/*
 !view/test.py
+pack/kite*
