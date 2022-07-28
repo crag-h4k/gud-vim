@@ -43,12 +43,18 @@
 [submodule "bundle/vim-prettier"]
 	path = bundle/vim-prettier
 	url = https://github.com/prettier/vim-prettier.git
-[submodule "bundle/bundle/dracula"]
-	path = bundle/bundle/dracula
-	url = git@github.com:dracula/vim.git
 [submodule "bundle/instant-markdown"]
 	path = bundle/instant-markdown
-	url = git@github.com:instant-markdown/vim-instant-markdown.git
-[submodule "bundle/colorschemes"]
-	path = bundle/colorschemes
-	url = https://github.com/flazz/vim-colorschemes.git
+	url = https://github.com/instant-markdown/vim-instant-markdown.git
+[submodule "bundle/dracula"]
+	path = bundle/dracula
+	url = https://github.com/dracula/vim.git
+[submodule "bundle/python-syntax"]
+	path = bundle/python-syntax
+	url = https://github.com/vim-python/python-syntax
+[submodule "YouCompleteMe"]
+	path = bundle/YouCompleteMe
+	url = https://github.com/ycm-core/YouCompleteMe.git
+[submodule "bundle/awesome-vim-colorschemes"]
+	path = bundle/awesome-vim-colorschemes
+	url = https://github.com/rafi/awesome-vim-colorschemes.git
