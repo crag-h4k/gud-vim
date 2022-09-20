@@ -2,10 +2,19 @@
 
 This is a pretty good vim setup.
 
+## Requirements
+
+
+###
+```
+brew install macvim --override-system-vim
+brew install cmake python3 go nodejs
+```
 
 ## Install
 
 ```zsh
+
 BAK=$HOME/.vim-$(date +%d-%b-%Y).bak
 mkdir $BAK
 mv $HOME/.vim* $BAK/.
@@ -26,5 +35,13 @@ Then activate your virtual environment and install the dependancies
 ```zsh
 source venv/bin/activate
 pip install -r requirements.txt
+```
+
+Next we need to complily YouCompleteMe. With our virtual environment
+active run the following command to start compiling it... it may take a few minutes
+
+```zsh
+cd $HOME/.vim/bundle/YouCompleteMe
+python3 install.py --all
 ```
 

@@ -52,9 +52,9 @@
 [submodule "bundle/python-syntax"]
 	path = bundle/python-syntax
 	url = https://github.com/vim-python/python-syntax
-[submodule "YouCompleteMe"]
-	path = bundle/YouCompleteMe
-	url = https://github.com/ycm-core/YouCompleteMe.git
+#[submodule "YouCompleteMe"]
+#	path = bundle/YouCompleteMe
+#	url = https://github.com/ycm-core/YouCompleteMe.git
 [submodule "bundle/awesome-vim-colorschemes"]
 	path = bundle/awesome-vim-colorschemes
 	url = https://github.com/rafi/awesome-vim-colorschemes.git

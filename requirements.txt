@@ -1,2 +1,5 @@
-jedi
-smdv
+jedi>=0.18.1
+smdv>=0.1.1
+setuptools
+cmake
+
