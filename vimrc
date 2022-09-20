@@ -1,9 +1,10 @@
 "
 runtime bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect()
+" execute pathogen#infect()
+call pathogen#infect()
 set runtimepath+=~/.vim
 syntax on
-filetype plugin on 
+" filetype plugin on
 filetype plugin indent on
 let g:python_host_prog='$HOME/.vim/venv/bin/python2'
 let g:python3_host_prog='$HOME/.vim/venv/bin/python3'
@@ -16,7 +17,7 @@ colorscheme dracula
 set number
 set mouse+=a
 set clipboard=unnamed
-" 
+"
 " * Searching *===========================
 set ignorecase
 set smartcase
@@ -53,7 +54,7 @@ if has("autocmd")
 "
 " Security *===========================
 " remember :X to encrypt, to remove passwd :X and leave blank
-setlocal cm=blowfish2 
+setlocal cm=blowfish2
 set noswapfile
 set nobackup
 set nowritebackup
@@ -112,6 +113,8 @@ command! Wq wq
 "
 "* Plug-in Options *===========================
 " remap nerdtree to Ctrl + n
+" NERDTree
+map <C-n> :NERDTreeToggle<CR>
 let g:rainbow_active=1
 let g:SuperTabDefaultCompletionType = "<c-n>"
 set updatetime=500
@@ -149,8 +152,6 @@ let g:completor_python_binary='$HOME/.vim/venv/bin/python'
 " let g:jedi#show_call_signatures_modes = 'ni'  " ni = also in normal mode
 " let g:jedi#enable_speed_debugging=0
 "
-" NERDTree
-map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Modified"  : "♻",
     \ "Staged"    : "✚",
@@ -169,8 +170,8 @@ let g:lightline = {
       \ 'colorscheme': 'darcula',
       \ }
 set laststatus=2
-packloadall
+" packloadall
 "
 " * Instant Markdown *=======================
-set shell=bash\ -i
+" set shell=bash\ -i
 
