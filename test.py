@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-from sys import argv, 
+from sys import argv
+
 
 def do_something(x=5,y=10,z=20) -> int:
     """

@@ -119,39 +119,30 @@ map <C-n> :NERDTreeToggle<CR>
 let g:rainbow_active=1
 let g:SuperTabDefaultCompletionType = "<c-n>"
 set updatetime=500
-let g:jedi#show_call_signatures = "1"
-let g:jedi#use_splits_not_buffers = "right"
 "
 " YouCompleteMe
 " Use homebrew's clangd
 " let g:ycm_clangd_binary_path = trim(system('brew --prefix llvm')).'/bin/clangd'
 " let g:ycm_clangd_binary_path = '/usr/local/opt/llvm/bin/clangd'
 "
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
-let g:syntastic_python_checkers = ['pylint']
-let g:jedi#use_tabs_not_buffers=1
-" let g:completor_python_binary='$HOME/.vim/venv/bin/python'
-"
+
 " Jedi
+let g:jedi#show_call_signatures = "1"
+let g:jedi#use_splits_not_buffers = "right"
+let g:completor_python_binary='$HOME/.vim/venv/bin/python'
 let g:jedi#auto_initialization = 1
 let g:jedi#completions_enabled = 1
 let g:jedi#auto_vim_configuration = 1
 let g:jedi#smart_auto_mappings = 0
 let g:jedi#popup_on_dot = 1
-" let g:jedi#completions_command = ""
+" let g:jedi#completions_command = "<M-<tab>>"
 let g:jedi#show_call_signatures = "1"
 let g:jedi#show_call_signatures_delay = 0
-let g:jedi#use_tabs_not_buffers = 0
+let g:jedi#use_tabs_not_buffers = 1
 let g:jedi#show_call_signatures_modes = 'ni'  " ni = also in normal mode
-let g:jedi#enable_speed_debugging=0
+let g:jedi#enable_speed_debugging= 1
+let g:jedi#environment_path = "venv"
+
 "
 let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Modified"  : "♻",
@@ -171,6 +162,8 @@ let g:lightline = {
       \ 'colorscheme': 'darcula',
       \ }
 set laststatus=2
+set statusline+=%#warningmsg#
+set statusline+=%*
 " packloadall
 "
 " * Instant Markdown *=======================
