@@ -68,24 +68,20 @@ set wildmode=list:longest,full
 " * Python Stuff *===========================
 " PEP 8 Indentation
 au BufNewFile, BufRead *.py
+set fileformat=unix
+" set omnifunc=pythoncomplete#Complete
+let g:python_highlight_all = 1
+"
+" * Tabbing and Indents *===========================
+set autoindent
+set smartindent
+set smarttab
+set expandtab
+" set cindent
 set tabstop=4
 set ts=4
 set softtabstop=4
 set shiftwidth=4
-set expandtab
-set autoindent
-set fileformat=unix
-set omnifunc=pythoncomplete#Complete
-let g:python_highlight_all = 1
-
-"
-" * Tabbing *===========================
-set smartindent
-set tabstop=4
-set smarttab
-set shiftwidth=4
-set softtabstop=4
-set expandtab
 " Displays '-' for trailing space, '>-' for tabs and '_' for non breakable
 " space
 set listchars=tab:>-,trail:-,nbsp:_
@@ -94,11 +90,7 @@ nnoremap<C-S-Enter> :tabe<CR>
 nnoremap<C-S-tab> :tabp<CR>
 nnoremap<C-tab>   :tabn<CR>
 "
-" * Default Indent *=====================
-set ai
-set si
 set wrap
-set autoindent
 "
 " * Noise *===========================
 set noerrorbells
@@ -120,12 +112,6 @@ let g:rainbow_active=1
 let g:SuperTabDefaultCompletionType = "<c-n>"
 set updatetime=500
 "
-" YouCompleteMe
-" Use homebrew's clangd
-" let g:ycm_clangd_binary_path = trim(system('brew --prefix llvm')).'/bin/clangd'
-" let g:ycm_clangd_binary_path = '/usr/local/opt/llvm/bin/clangd'
-"
-
 " Jedi
 let g:jedi#show_call_signatures = "1"
 let g:jedi#use_splits_not_buffers = "right"
@@ -139,10 +125,9 @@ let g:jedi#popup_on_dot = 1
 let g:jedi#show_call_signatures = "1"
 let g:jedi#show_call_signatures_delay = 0
 let g:jedi#use_tabs_not_buffers = 1
-let g:jedi#show_call_signatures_modes = 'ni'  " ni = also in normal mode
+" let g:jedi#show_call_signatures_modes = 'ni'  " ni = also in normal mode
 let g:jedi#enable_speed_debugging= 1
 let g:jedi#environment_path = "venv"
-
 "
 let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Modified"  : "♻",

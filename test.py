@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from sys import argv
+import os
 
 
 def do_something(x=5,y=10,z=20) -> int:
@@ -17,4 +18,6 @@ if __name__ == '__main__':
     else:
         result = do_something(1,2,3)
     print(f'result: {result}')
+
+    test = {}
 
