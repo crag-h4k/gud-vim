@@ -75,8 +75,9 @@ set shiftwidth=4
 set expandtab
 set autoindent
 set fileformat=unix
-" set omnifunc=pythoncomplete#Complete
-let python_highlight_all=1
+set omnifunc=pythoncomplete#Complete
+let g:python_highlight_all = 1
+
 "
 " * Tabbing *===========================
 set smartindent
@@ -137,20 +138,20 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
 let g:syntastic_python_checkers = ['pylint']
 let g:jedi#use_tabs_not_buffers=1
-let g:completor_python_binary='$HOME/.vim/venv/bin/python'
+" let g:completor_python_binary='$HOME/.vim/venv/bin/python'
 "
 " Jedi
-" let g:jedi#auto_initialization = 1
-" let g:jedi#completions_enabled = 0
-" let g:jedi#auto_vim_configuration = 0
-" let g:jedi#smart_auto_mappings = 0
-" let g:jedi#popup_on_dot = 0
+let g:jedi#auto_initialization = 1
+let g:jedi#completions_enabled = 1
+let g:jedi#auto_vim_configuration = 1
+let g:jedi#smart_auto_mappings = 0
+let g:jedi#popup_on_dot = 1
 " let g:jedi#completions_command = ""
-" let g:jedi#show_call_signatures = "1"
-" let g:jedi#show_call_signatures_delay = 0
-" let g:jedi#use_tabs_not_buffers = 0
-" let g:jedi#show_call_signatures_modes = 'ni'  " ni = also in normal mode
-" let g:jedi#enable_speed_debugging=0
+let g:jedi#show_call_signatures = "1"
+let g:jedi#show_call_signatures_delay = 0
+let g:jedi#use_tabs_not_buffers = 0
+let g:jedi#show_call_signatures_modes = 'ni'  " ni = also in normal mode
+let g:jedi#enable_speed_debugging=0
 "
 let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Modified"  : "♻",

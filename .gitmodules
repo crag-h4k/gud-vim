@@ -1,60 +1,63 @@
 [submodule]
     active = .
 [submodule "bundle/rainbow"]
-	path = bundle/rainbow
-	url = https://github.com/luochen1990/rainbow
+    path = bundle/rainbow
+    url = https://github.com/luochen1990/rainbow
 [submodule "bundle/splunk.vim"]
-	path = bundle/splunk.vim
-	url = https://github.com/vim-scripts/splunk.vim
+    path = bundle/splunk.vim
+    url = https://github.com/vim-scripts/splunk.vim
 [submodule "bundle/supertab"]
-	path = bundle/supertab
-	url = https://github.com/ervandew/supertab
+    path = bundle/supertab
+    url = https://github.com/ervandew/supertab
 [submodule "bundle/syntastic"]
-	path = bundle/syntastic
-	url = https://github.com/vim-syntastic/syntastic
+    path = bundle/syntastic
+    url = https://github.com/vim-syntastic/syntastic
 [submodule "bundle/vim-fugitive"]
-	path = bundle/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive
+    path = bundle/vim-fugitive
+    url = https://github.com/tpope/vim-fugitive
 [submodule "bundle/vim-pathogen"]
-	path = bundle/vim-pathogen
-	url = https://github.com/tpope/vim-pathogen
+    path = bundle/vim-pathogen
+    url = https://github.com/tpope/vim-pathogen
 [submodule "bundle/vim-renamer"]
-	path = bundle/vim-renamer
-	url = https://github.com/qpkorr/vim-renamer
+    path = bundle/vim-renamer
+    url = https://github.com/qpkorr/vim-renamer
 [submodule "bundle/vim-yaml"]
-	path = bundle/vim-yaml
-	url = https://github.com/stephpy/vim-yaml
+    path = bundle/vim-yaml
+    url = https://github.com/stephpy/vim-yaml
 [submodule "bundle/nerdtree"]
-	path = bundle/nerdtree
-	url = https://github.com/preservim/nerdtree.git
+    path = bundle/nerdtree
+    url = https://github.com/preservim/nerdtree.git
 [submodule "bundle/nerdtree-git-plugin"]
-	path = bundle/nerdtree-git-plugin
-	url = https://github.com/Xuyuanp/nerdtree-git-plugin.git
+    path = bundle/nerdtree-git-plugin
+    url = https://github.com/Xuyuanp/nerdtree-git-plugin.git
 [submodule "bundle/lightline.vim"]
-	path = bundle/lightline.vim
-	url = https://github.com/itchyny/lightline.vim
+    path = bundle/lightline.vim
+    url = https://github.com/itchyny/lightline.vim
 [submodule "bundle/jedi-vim"]
-	path = bundle/jedi-vim
-	url = https://github.com/davidhalter/jedi-vim.git
+    path = bundle/jedi-vim
+    url = https://github.com/davidhalter/jedi-vim.git
 [submodule "bundle/swift.vim"]
-	path = bundle/swift.vim
+    path = bundle/swift.vim
     url = https://github.com/keith/swift.vim
 [submodule "bundle/vim-codefmt"]
-	path = bundle/vim-codefmt
-	url = https://github.com/google/vim-codefmt.git
+    path = bundle/vim-codefmt
+    url = https://github.com/google/vim-codefmt.git
 [submodule "bundle/vim-prettier"]
-	path = bundle/vim-prettier
-	url = https://github.com/prettier/vim-prettier.git
+    path = bundle/vim-prettier
+    url = https://github.com/prettier/vim-prettier.git
 [submodule "bundle/instant-markdown"]
-	path = bundle/instant-markdown
-	url = https://github.com/instant-markdown/vim-instant-markdown.git
+    path = bundle/instant-markdown
+    url = https://github.com/instant-markdown/vim-instant-markdown.git
 [submodule "bundle/dracula"]
-	path = bundle/dracula
-	url = https://github.com/dracula/vim.git
+    path = bundle/dracula
+    url = https://github.com/dracula/vim.git
 [submodule "bundle/python-syntax"]
-	path = bundle/python-syntax
-	url = https://github.com/vim-python/python-syntax
+    path = bundle/python-syntax
+    url = https://github.com/vim-python/python-syntax
 [submodule "bundle/awesome-vim-colorschemes"]
-	path = bundle/awesome-vim-colorschemes
-	url = https://github.com/rafi/awesome-vim-colorschemes.git
+    path = bundle/awesome-vim-colorschemes
+    url = https://github.com/rafi/awesome-vim-colorschemes.git
 
+[submodule "bundle/cloudformation-syntax"]
+	path = bundle/cloudformation-syntax
+	url = https://github.com/NLKNguyen/cloudformation-syntax.vim
