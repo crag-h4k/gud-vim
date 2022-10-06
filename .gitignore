@@ -5,7 +5,6 @@
 .netrwhist
 view/*
 venv/*
-venv/*
 view/*
 !view/test.py
 

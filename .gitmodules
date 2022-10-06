@@ -6,9 +6,6 @@
 [submodule "bundle/splunk.vim"]
     path = bundle/splunk.vim
     url = https://github.com/vim-scripts/splunk.vim
-[submodule "bundle/supertab"]
-    path = bundle/supertab
-    url = https://github.com/ervandew/supertab
 [submodule "bundle/vim-fugitive"]
     path = bundle/vim-fugitive
     url = https://github.com/tpope/vim-fugitive
@@ -51,7 +48,12 @@
 [submodule "bundle/awesome-vim-colorschemes"]
     path = bundle/awesome-vim-colorschemes
     url = https://github.com/rafi/awesome-vim-colorschemes.git
-
 [submodule "bundle/cloudformation-syntax"]
-	path = bundle/cloudformation-syntax
-	url = https://github.com/NLKNguyen/cloudformation-syntax.vim
+    path = bundle/cloudformation-syntax
+    url = https://github.com/NLKNguyen/cloudformation-syntax.vim
+[submodule "bundle/ale"]
+    path = bundle/ale
+    url = https://github.com/dense-analysis/ale.git
+[submodule "bundle/supertab"]
+    path = bundle/supertab
+    url = https://github.com/ervandew/supertab

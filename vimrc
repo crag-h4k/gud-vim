@@ -65,6 +65,17 @@ set backspace=indent,eol,start
 set wildmenu
 set wildmode=list:longest,full
 "
+" ALE
+set omnifunc=ale#completion#OmniFunc
+let g:ale_completion_enabled = 1
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
+" Check Python files with flake8 and pylint.
+let b:ale_linters = ['flake8', 'pylint']
+"Fix Python files with autopep8 and yapf.
+" let b:ale_fixers = ['autopep8', 'yapf']
+
+"
 " * Python Stuff *===========================
 " PEP 8 Indentation
 au BufNewFile, BufRead *.py
@@ -143,13 +154,13 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ }
 "
 " * Status Line *=============================
-let g:lightline = {
-      \ 'colorscheme': 'darcula',
-      \ }
+let g:lightline = { 'colorscheme': 'darcula' }
+let g:airline#extensions#ale#enabled = 1
+
 set laststatus=2
 set statusline+=%#warningmsg#
 set statusline+=%*
-" packloadall
+packloadall
 "
 " * Instant Markdown *=======================
 " set shell=bash\ -i
