@@ -6,13 +6,12 @@ set runtimepath+=~/.vim
 syntax on
 " filetype plugin on
 filetype plugin indent on
-let g:python_host_prog='$HOME/.vim/venv/bin/python2'
+"let g:python_host_prog='$HOME/.vim/venv/bin/python2'
 let g:python3_host_prog='$HOME/.vim/venv/bin/python3'
 " * Colors *===========================
 set t_Co=256
 set encoding=utf-8
 colorscheme dracula
-" colorscheme wombat
 "
 set number
 set mouse+=a
@@ -26,7 +25,6 @@ set autowrite
 set hidden
 "
 " * Remaps *===========================
-"
 "MacBook Touchbar
 inoremap fj <ESC>
 cnoremap fj <ESC>
@@ -37,7 +35,6 @@ vnoremap <Space> za
 """""Refocus fold
 nnoremap ,z zMzvzz
 """"unfold top regardless of cursor location
-"
 " * Folding *===========================
 set foldmethod=indent
 set foldnestmax=10
@@ -66,21 +63,19 @@ set wildmenu
 set wildmode=list:longest,full
 "
 " ALE
-set omnifunc=ale#completion#OmniFunc
-let g:ale_completion_enabled = 1
+" set omnifunc=ale#completion#OmniFunc
+" let g:ale_completion_enabled = 0
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
 " Check Python files with flake8 and pylint.
 let b:ale_linters = ['flake8', 'pylint']
-"Fix Python files with autopep8 and yapf.
-" let b:ale_fixers = ['autopep8', 'yapf']
 
 "
 " * Python Stuff *===========================
 " PEP 8 Indentation
-au BufNewFile, BufRead *.py
+" au BufNewFile, BufRead *.py
 set fileformat=unix
-" set omnifunc=pythoncomplete#Complete
+set omnifunc=pythoncomplete#Complete
 let g:python_highlight_all = 1
 "
 " * Tabbing and Indents *===========================
@@ -124,21 +119,23 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 set updatetime=500
 "
 " Jedi
-let g:jedi#show_call_signatures = "1"
-let g:jedi#use_splits_not_buffers = "right"
-let g:completor_python_binary='$HOME/.vim/venv/bin/python'
-let g:jedi#auto_initialization = 1
-let g:jedi#completions_enabled = 1
-let g:jedi#auto_vim_configuration = 1
-let g:jedi#smart_auto_mappings = 0
-let g:jedi#popup_on_dot = 1
+" set omnifunc=jedi
+" let g:jedi#show_call_signatures = "1"
+" let g:jedi#use_splits_not_buffers = "right"
+" let g:completor_python_binary='$HOME/.vim/venv/bin/python'
+" let g:jedi#auto_initialization = 1
+" let g:jedi#completions_enabled = 1
+" let g:jedi#auto_vim_configuration = 1
+" let g:jedi#smart_auto_mappings = 0
+" let g:jedi#popup_on_dot = 1
 " let g:jedi#completions_command = "<M-<tab>>"
-let g:jedi#show_call_signatures = "1"
-let g:jedi#show_call_signatures_delay = 0
-let g:jedi#use_tabs_not_buffers = 1
+" let g:jedi#show_call_signatures = "1"
+" let g:jedi#show_call_signatures_delay = 0
+" let g:jedi#use_tabs_not_buffers = 1
 " let g:jedi#show_call_signatures_modes = 'ni'  " ni = also in normal mode
-let g:jedi#enable_speed_debugging= 1
-let g:jedi#environment_path = "venv"
+" let g:jedi#enable_speed_debugging= 1
+" let g:jedi#environment_path = "venv"
+" let g:jedi#environment_path = '$HOME/.vim/venv/bin/python'
 "
 let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Modified"  : "♻",
