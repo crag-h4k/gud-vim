@@ -119,7 +119,7 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 set updatetime=500
 "
 " Jedi
-" set omnifunc=jedi
+set omnifunc=jedi
 " let g:jedi#show_call_signatures = "1"
 " let g:jedi#use_splits_not_buffers = "right"
 " let g:completor_python_binary='$HOME/.vim/venv/bin/python'
