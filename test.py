@@ -1,14 +1,15 @@
+""" this module is for testing vim config stuff with Python"""
 #!/usr/bin/env python3
+
 from sys import argv
-from os import getenv
 
 
-def do_something(x=5, y=10, z=20) -> int:
+def do_something(x_int=5, y_int=10, z_int=20) -> int:
     """
     add all the inputs together and square it.
     """
-    p = x + y + z
-    return p ** p
+    p_int = x_int + y_int + z_int
+    return p_int ** p_int
 
 
 if __name__ == '__main__':
@@ -20,4 +21,3 @@ if __name__ == '__main__':
     print(f'result: {result}')
 
     test = {}
-
