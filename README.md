@@ -14,12 +14,12 @@ brew install cmake python3 go nodejs
 ## Install
 
 ```zsh
-
 BAK=$HOME/.vim-$(date +%d-%b-%Y).bak
 mkdir $BAK
 mv $HOME/.vim* $BAK/.
 git clone https://github.com/crag-h4k/gud-vim.git $HOME/.vim --recursive
 ln -s $HOME/.vim/vimrc ~/.vimrc
+git submodule update --recursive --remote bundle/*
 ```
 
 I have this setup to use a Python3 Virtual Environment
@@ -37,11 +37,5 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Next we need to complily YouCompleteMe. With our virtual environment
-active run the following command to start compiling it... it may take a few minutes
-
-```zsh
-cd $HOME/.vim/bundle/YouCompleteMe
-python3 install.py --all
-```
+### Huzzah! All done
 

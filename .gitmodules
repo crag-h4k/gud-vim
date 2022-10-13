@@ -33,9 +33,6 @@
 [submodule "bundle/vim-prettier"]
     path = bundle/vim-prettier
     url = https://github.com/prettier/vim-prettier.git
-[submodule "bundle/instant-markdown"]
-    path = bundle/instant-markdown
-    url = https://github.com/instant-markdown/vim-instant-markdown.git
 [submodule "bundle/dracula"]
     path = bundle/dracula
     url = https://github.com/dracula/vim.git
@@ -55,8 +52,8 @@
     path = bundle/supertab
     url = https://github.com/ervandew/supertab
 [submodule "bundle/jedi-vim"]
-	path = bundle/jedi-vim
-	url = https://github.com/davidhalter/jedi-vim.git
+    path = bundle/jedi-vim
+    url = https://github.com/davidhalter/jedi-vim.git
 [submodule "bundle/vim-python-pep8-indent"]
-	path = bundle/vim-python-pep8-indent
-	url = https://github.com/Vimjas/vim-python-pep8-indent
+    path = bundle/vim-python-pep8-indent
+    url = https://github.com/Vimjas/vim-python-pep8-indent

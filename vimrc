@@ -160,5 +160,5 @@ set statusline+=%*
 " packloadall
 "
 " * Instant Markdown *=======================
-" set shell=bash\ -i
+set shell=bash\ -i
 
