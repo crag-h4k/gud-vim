@@ -1,19 +1,20 @@
 "
 runtime bundle/vim-pathogen/autoload/pathogen.vim
-" execute pathogen#infect()
-call pathogen#infect()
+execute pathogen#infect()
 set runtimepath+=~/.vim
 syntax on
-" filetype plugin on
 filetype plugin indent on
-"let g:python_host_prog='$HOME/.vim/venv/bin/python2'
+let g:python_host_prog='$HOME/.vim/venv/bin/python2'
 let g:python3_host_prog='$HOME/.vim/venv/bin/python3'
 " * Colors *===========================
 set t_Co=256
 set encoding=utf-8
 colorscheme dracula
 "
+" Misc settings
+set wrap
 set number
+set ruler
 set mouse+=a
 set clipboard=unnamed
 "
@@ -43,8 +44,8 @@ set nofoldenable
 "
 " Buffer *===========================
 "buffers to save cursor location
-" au BufWinLeave * mkview
-"au BufWinEnter * silent loadview
+au BufWinLeave * mkview
+au BufWinEnter * silent loadview
 if has("autocmd")
       au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
   endif
@@ -63,27 +64,30 @@ set wildmenu
 set wildmode=list:longest,full
 "
 " ALE
-" set omnifunc=ale#completion#OmniFunc
+set omnifunc=ale#completion#OmniFunc
 " let g:ale_completion_enabled = 0
-let g:ale_sign_error = '>>'
-let g:ale_sign_warning = '--'
+" other fun symbols
+" '⚠' '☂' '☣' '☠'
+let g:ale_sign_warning = '☠'
+let g:ale_sign_error = '⚠'
 " Check Python files with flake8 and pylint.
 let b:ale_linters = ['flake8', 'pylint']
-
 "
 " * Python Stuff *===========================
 " PEP 8 Indentation
-" au BufNewFile, BufRead *.py
+au BufNewFile, BufRead *.py set expandtab
 set fileformat=unix
 set omnifunc=pythoncomplete#Complete
 let g:python_highlight_all = 1
 "
 " * Tabbing and Indents *===========================
-set autoindent
-set smartindent
+let g:pymode_indent = 0
 set smarttab
 set expandtab
-" set cindent
+" copy indent from current line when starting a new line
+set autoindent
+"set smartindent
+set cindent
 set tabstop=4
 set ts=4
 set softtabstop=4
@@ -96,9 +100,7 @@ nnoremap<C-S-Enter> :tabe<CR>
 nnoremap<C-S-tab> :tabp<CR>
 nnoremap<C-tab>   :tabn<CR>
 "
-set wrap
-"
-" * Noise *===========================
+" * Turn off noise *===========================
 set noerrorbells
 set novisualbell
 set belloff=all
@@ -111,31 +113,30 @@ command! WQ wq
 command! Wq wq
 "
 "* Plug-in Options *===========================
-" remap nerdtree to Ctrl + n
 " NERDTree
+" remap nerdtree to Ctrl + n
 map <C-n> :NERDTreeToggle<CR>
 let g:rainbow_active=1
 let g:SuperTabDefaultCompletionType = "<c-n>"
 set updatetime=500
 "
 " Jedi
-set omnifunc=jedi
-" let g:jedi#show_call_signatures = "1"
-" let g:jedi#use_splits_not_buffers = "right"
-" let g:completor_python_binary='$HOME/.vim/venv/bin/python'
-" let g:jedi#auto_initialization = 1
-" let g:jedi#completions_enabled = 1
-" let g:jedi#auto_vim_configuration = 1
+" set omnifunc=jedi
+let g:jedi#show_call_signatures = "1"
+set splitright
+let g:jedi#use_splits_not_buffers = "right"
+let g:completor_python_binary='$HOME/.vim/venv/bin/python'
+let g:jedi#auto_initialization = 1
+let g:jedi#completions_enabled = 1
+let g:jedi#auto_vim_configuration = 1
 " let g:jedi#smart_auto_mappings = 0
-" let g:jedi#popup_on_dot = 1
+let g:jedi#popup_on_dot = 1
 " let g:jedi#completions_command = "<M-<tab>>"
-" let g:jedi#show_call_signatures = "1"
-" let g:jedi#show_call_signatures_delay = 0
-" let g:jedi#use_tabs_not_buffers = 1
+let g:jedi#show_call_signatures = "1"
+let g:jedi#show_call_signatures_delay = 0
 " let g:jedi#show_call_signatures_modes = 'ni'  " ni = also in normal mode
-" let g:jedi#enable_speed_debugging= 1
-" let g:jedi#environment_path = "venv"
-" let g:jedi#environment_path = '$HOME/.vim/venv/bin/python'
+let g:jedi#enable_speed_debugging= 1
+let g:jedi#environment_path = "venv"
 "
 let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Modified"  : "♻",
@@ -153,11 +154,10 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
 " * Status Line *=============================
 let g:lightline = { 'colorscheme': 'darcula' }
 let g:airline#extensions#ale#enabled = 1
-
 set laststatus=2
 set statusline+=%#warningmsg#
 set statusline+=%*
-packloadall
+" packloadall
 "
 " * Instant Markdown *=======================
 " set shell=bash\ -i
