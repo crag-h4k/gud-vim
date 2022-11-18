@@ -1,10 +1,10 @@
+autosave/*
+!autosave/
+*.log
 .DS_Store
 ._.DS_Store
 .bak*
-*.log
 .netrwhist
-view/*
 venv/*
 view/*
 !view/test.py
-

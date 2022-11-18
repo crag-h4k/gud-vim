@@ -58,5 +58,8 @@
 #    path = bundle/vim-codefmt
 #    url = https://github.com/google/vim-codefmt.git
 [submodule "bundle/vim-codefmt"]
-	path = bundle/vim-codefmt
-	url = https://github.com/google/vim-codefmt.git
+    path = bundle/vim-codefmt
+    url = https://github.com/google/vim-codefmt.git
+[submodule "bundle/vim-log-highlighting"]
+	path = bundle/vim-log-highlighting
+	url = https://github.com/mtdl9/vim-log-highlighting
