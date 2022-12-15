@@ -1,1 +1,3 @@
 jedi
+pylint
+flake8
