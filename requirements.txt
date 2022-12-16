@@ -1,3 +1,4 @@
 jedi
 pylint
 flake8
+darglint

@@ -72,7 +72,7 @@ set omnifunc=ale#completion#OmniFunc
 let g:ale_sign_warning = '⚠'
 let g:ale_sign_error = '☠'
 " Check Python files with flake8 and pylint.
-let b:ale_linters = ['flake8', 'pylint']
+let b:ale_linters = ['pylint', 'flake8', 'darglint']
 "
 "  Python Stuff ===========================
 " PEP 8 Indentation

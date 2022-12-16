@@ -19,6 +19,7 @@ mkdir $BAK
 mv $HOME/.vim* $BAK/.
 git clone https://github.com/crag-h4k/gud-vim.git $HOME/.vim --recursive
 ln -s $HOME/.vim/vimrc ~/.vimrc
+ln -s $HOME/.vim/darglint ~/.darglint
 git submodule update --recursive --remote bundle/*
 ```
 
