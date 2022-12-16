@@ -1,0 +1,4 @@
+[darglint]
+#ignore=DAR401,DAR402
+docstring_style=google
+strictness=full
