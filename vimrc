@@ -72,7 +72,12 @@ set omnifunc=ale#completion#OmniFunc
 let g:ale_sign_warning = '⚠'
 let g:ale_sign_error = '☠'
 " Check Python files with flake8 and pylint.
-let b:ale_linters = ['pylint', 'flake8', 'darglint']
+
+"let g:ale_linters = {
+"\   'python': ['pylint', 'flake8', 'darglint'],
+"\    'yaml':'cfn-lint',
+"\}
+let b:ale_linters = ['pylint', 'flake8', 'darglint', 'cfn-lint']
 "
 "  Python Stuff ===========================
 " PEP 8 Indentation
@@ -95,9 +100,10 @@ set shiftwidth=4
 " YAML specific ===========================
 " Fix auto-indentation for YAML files
 augroup yaml_fix
-    autocmd!
-    autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=0# indentkeys-=<:>
+    au!
+    au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=0# indentkeys-=<:>
 augroup END
+au BufRead,BufNewFile *.template.yaml set filetype=yaml.cloudformation
 " autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 "autocmd BufEnter *.yml set tabstop=2 softtabstop=2 shiftwidth=2
 " autocmd BufEnter *.yaml set tabstop=2 softtabstop=2 shiftwidth=2

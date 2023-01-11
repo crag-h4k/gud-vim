@@ -39,9 +39,6 @@
 [submodule "bundle/awesome-vim-colorschemes"]
     path = bundle/awesome-vim-colorschemes
     url = https://github.com/rafi/awesome-vim-colorschemes.git
-[submodule "bundle/cloudformation-syntax"]
-    path = bundle/cloudformation-syntax
-    url = https://github.com/NLKNguyen/cloudformation-syntax.vim
 [submodule "bundle/ale"]
     path = bundle/ale
     url = https://github.com/dense-analysis/ale.git
