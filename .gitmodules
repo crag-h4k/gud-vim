@@ -57,3 +57,6 @@
 [submodule "bundle/vim-log-highlighting"]
 	path = bundle/vim-log-highlighting
 	url = https://github.com/mtdl9/vim-log-highlighting
+[submodule "bundle/rust.vim"]
+	path = bundle/rust.vim
+	url = https://github.com/rust-lang/rust.vim.git

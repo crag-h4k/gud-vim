@@ -71,14 +71,22 @@ set omnifunc=ale#completion#OmniFunc
 " '⚠' '☂' '☣' '☠'
 let g:ale_sign_warning = '⚠'
 let g:ale_sign_error = '☠'
+" Set this in your vimrc file to disabling highlighting
+
 " Check Python files with flake8 and pylint.
 
 let b:ale_linters={
-\   'python': ['pylint', 'flake8', 'darglint'],
+\   'python': ['flake8', 'darglint', 'pylint'],
+\   'rust': ['analyzer'],
 \   'yaml': ['cfn-lint', 'yamllint'],
 \}
-let g:ale_python_flake8_options = '--max-line-length=88'
-" let b:ale_linters = ['pylint', 'flake8', 'darglint', 'cfn-lint']
+" need to install rust analyyer, rustfmt
+let g:ale_fixers = {
+\   'rust': ['rustfmt', 'trim_whitespace', 'remove_trailing_lines'],
+\   'python': ['trim_whitespace', 'remove_trailing_lines'],
+\}
+
+let g:ale_set_highlights = 0
 "
 "  Python Stuff ===========================
 " PEP 8 Indentation
@@ -86,9 +94,13 @@ au BufNewFile, BufRead *.py set expandtab
 set fileformat=unix
 set omnifunc=pythoncomplete#Complete
 let g:python_highlight_all = 1
+let g:pymode_indent = 0
+let g:ale_python_flake8_options = '--ignore=E501'
+"
+"  Rust Stuff ===========================
+autocmd BufNewFile,BufRead *.rs set filetype=rust
 "
 "  Tabbing and Indents ===========================
-let g:pymode_indent = 0
 set smarttab
 set expandtab
 " copy indent from current line when starting a new line
@@ -179,3 +191,6 @@ set statusline+=%*
 "
 " log-highlighting =======================
 " au rc Syntax log syn keyword logLevelError test
+" let g:ale_set_highlights = 0
+let g:LanguageClient_useVirtualText = 0
+"
