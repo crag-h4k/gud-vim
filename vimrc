@@ -86,7 +86,7 @@ let g:ale_fixers = {
 \   'python': ['trim_whitespace', 'remove_trailing_lines'],
 \}
 
-let g:ale_set_highlights = 0
+" let g:ale_set_highlights = 0
 "
 "  Python Stuff ===========================
 " PEP 8 Indentation
@@ -96,6 +96,8 @@ set omnifunc=pythoncomplete#Complete
 let g:python_highlight_all = 1
 let g:pymode_indent = 0
 let g:ale_python_flake8_options = '--ignore=E501'
+" ignore invalid-name convention
+let g:ale_python_pylint_options = '--ignore=C0103'
 "
 "  Rust Stuff ===========================
 autocmd BufNewFile,BufRead *.rs set filetype=rust
@@ -191,6 +193,6 @@ set statusline+=%*
 "
 " log-highlighting =======================
 " au rc Syntax log syn keyword logLevelError test
-" let g:ale_set_highlights = 0
+let g:ale_set_highlights = 0
 let g:LanguageClient_useVirtualText = 0
 "
