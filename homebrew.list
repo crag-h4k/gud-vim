@@ -4,5 +4,7 @@ llvm
 macvim
 mono
 nodejs
-python
-
+python3
+rust
+rust-analyzer
+rustfmt
