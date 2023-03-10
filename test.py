@@ -2,6 +2,7 @@
 #!/usr/bin/env python3
 
 from sys import argv
+from boto3 import Client
 
 
 def do_something(x_int=5, y_int=10, z_int=20) -> int:

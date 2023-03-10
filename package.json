@@ -1,0 +1,22 @@
+{
+  "name": "gud-vim",
+  "version": "1.0.0",
+  "description": "This is a pretty good vim setup. This setup focuses on Python3 and is also set up for Rust development.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crag-h4k/gud-vim.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crag-h4k/gud-vim/issues"
+  },
+  "homepage": "https://github.com/crag-h4k/gud-vim#readme",
+  "devDependencies": {
+    "eslint": "^8.35.0"
+  }
+}

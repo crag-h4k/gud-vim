@@ -4,8 +4,8 @@
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 set runtimepath+=~/.vim
-syntax on
 filetype plugin indent on
+syntax enable
 " Colors ===========================
 set t_Co=256
 set encoding=utf-8
@@ -73,17 +73,19 @@ let g:ale_sign_warning = '⚠'
 let g:ale_sign_error = '☠'
 " Set this in your vimrc file to disabling highlighting
 
-" Check Python files with flake8 and pylint.
-
+" ALE Linters
 let b:ale_linters={
+\   'javascript': ['eslint'],
 \   'python': ['flake8', 'darglint', 'pylint'],
 \   'rust': ['analyzer'],
 \   'yaml': ['cfn-lint', 'yamllint'],
 \}
 " need to install rust analyyer, rustfmt
 let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'rust': ['rustfmt', 'trim_whitespace', 'remove_trailing_lines'],
 \   'python': ['trim_whitespace', 'remove_trailing_lines'],
+\   'javascript': ['prettier', 'eslint'],
 \}
 
 " let g:ale_set_highlights = 0
@@ -101,6 +103,9 @@ let g:ale_python_pylint_options = '--ignore=C0103'
 "
 "  Rust Stuff ===========================
 autocmd BufNewFile,BufRead *.rs set filetype=rust
+"
+" JavaScript  Stuff ===========================
+let g:javascript_plugin_jsdoc = 1
 "
 "  Tabbing and Indents ===========================
 set smarttab
