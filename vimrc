@@ -11,7 +11,7 @@ set t_Co=256
 set encoding=utf-8
 colorscheme dracula
 "
-" Misc settings ===========================
+" Basic UI settings ===========================
 set wrap
 set number
 set ruler
@@ -31,17 +31,14 @@ set hidden
 inoremap fj <ESC>
 cnoremap fj <ESC>
 "
-nnoremap <Space> za
-vnoremap <Space> za
-" refocus fold
-" nnoremap ,z zMzvzz
-" unfold top regardless of cursor location
-" Folding ===========================
-"set foldmethod=indent
-"set foldnestmax=10
-"set foldlevel=0
-set nofoldenable
 "
+" Buffer ===========================
+"    buffers to save cursor location
+" au BufWinLeave mkview
+" au BufWinEnter silent loadview
+if has("autocmd")
+      au BufReadPost if line("'\"") > 0 && line("'\"") <= line("$") | exe normal! g`\"" | endif
+endif
 " Buffer ===========================
 " set buffers to leave off where left
 " au BufWinLeave * mkview
@@ -52,13 +49,13 @@ if has("autocmd")
   endif
 "
 " Security ===========================
-" remember :X to encrypt, to remove passwd :X and leave blank
+"    Remember :X to encrypt, to remove passwd :X and leave blank
 setlocal cm=blowfish2
 set noswapfile
 set nobackup
 set nowritebackup
 "
-"fix backspace errors ===========================
+" Fix backspace errors ===========================
 set backspace=indent,eol,start
 "
 set wildmenu
@@ -71,8 +68,6 @@ set omnifunc=ale#completion#OmniFunc
 " '⚠' '☂' '☣' '☠'
 let g:ale_sign_warning = '⚠'
 let g:ale_sign_error = '☠'
-" Set this in your vimrc file to disabling highlighting
-
 " Check Python files with flake8 and pylint.
 
 let b:ale_linters={
@@ -85,7 +80,7 @@ let g:ale_fixers = {
 \   'rust': ['rustfmt', 'trim_whitespace', 'remove_trailing_lines'],
 \   'python': ['trim_whitespace', 'remove_trailing_lines'],
 \}
-
+" Set this in your vimrc file to disabling highlighting
 " let g:ale_set_highlights = 0
 "
 "  Python Stuff ===========================
@@ -99,8 +94,10 @@ let g:ale_python_flake8_options = '--ignore=E501'
 " ignore invalid-name convention
 let g:ale_python_pylint_options = '--ignore=C0103'
 "
-"  Rust Stuff ===========================
+" Rust Stuff ===========================
 autocmd BufNewFile,BufRead *.rs set filetype=rust
+" Go Stuff ===========================
+autocmd BufNewFile,BufRead *. set filetype=go
 "
 "  Tabbing and Indents ===========================
 set smarttab
@@ -112,22 +109,24 @@ set cindent
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-" YAML specific ===========================
-" Fix auto-indentation for YAML files
-augroup yaml_fix
-    au!
-    au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=0# indentkeys-=<:>
-augroup END
-au BufRead,BufNewFile *.template.yaml set filetype=yaml.cloudformation
-"
-" Displays '-' for trailing space, '>-' for tabs and '_' for non breakable space
-set listchars=tab:>-,trail:-,nbsp:_
-set list
+" Tab remaps
 nnoremap<C-S-Enter> :tabe<CR>
 nnoremap<C-S-tab> :tabp<CR>
 nnoremap<C-tab>   :tabn<CR>
+" YAML specific ===========================
+"    Fix auto-indentation for YAML files
+augroup yaml_fix
+    au!
+    au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=0# indentkeys-=<:>
+    au BufRead,BufNewFile *.template.yaml set filetype=yaml.cloudformation
+augroup END
 "
-" Turn off noise ===========================
+" au BufRead,BufNewFile *.template.yaml set filetype=yaml.cloudformation
+" Displays '-' for trailing space, '>-' for tabs and '_' for non breakable space
+set listchars=tab:>-,trail:-,nbsp:_
+set list
+"
+" No Noise ===========================
 set noerrorbells
 set novisualbell
 set belloff=all
