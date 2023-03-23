@@ -1,6 +1,6 @@
-package main
+ackage main
 
-import "fmt"
+mport "fmt"
 
 func main() {
     fmt.Println("hello world")
