@@ -1,4 +1,4 @@
-ackage main
+package main
 
 mport "fmt"
 

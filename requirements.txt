@@ -2,5 +2,7 @@ darglint==1.8.1
 flake8==6.0.0
 isort==5.11.2
 jedi==0.18.1
+neovim==0.3.1
 pyflakes==3.0.1
 pylint==2.15.8
+pynvim==0.4.3

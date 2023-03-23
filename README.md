@@ -1,6 +1,10 @@
 # Gud Vim
 
-This is a pretty good vim setup. This setup focuses on Python3 and is also set up for Rust and Go development (Javascript still WIP).
+This is a pretty good vim setup. This setup focuses on Python3 and is
+also set up for Rust and Go development (Javascript still WIP).
+
+This configuration works with neovim with a couple additional steps -
+see **`neovim`** section below for more details.
 
 ## MacOS Install Prereqs
 
@@ -11,7 +15,7 @@ xargs brew install < homebrew.list
 
 ## Debian GNU/Linux Install Prereqs
 
-```sh 
+```sh
 xargs sudo apt install -y < deb-pkgs.txt
 ```
 
@@ -42,7 +46,25 @@ Then activate your virtual environment and install dependancies
 
 ```sh
 source venv/bin/activate
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 ### Huzzah! All done
+
+## `neovim` setup
+
+Create a directory and symlink so that `neovim` knows where to look.
+
+```sh
+mkdir -p $HOME/.config
+ln -s ~/.vim ~/.config/nvim
+```
+
+For jedi to work we need to install python's `neovim` module into the system's`PYTHONPATH`.
+
+```sh
+deactivate
+pip3 install neovim --user
+```
+
+After this neovim should work! Please let me know if there are any issues.

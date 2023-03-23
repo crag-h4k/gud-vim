@@ -48,11 +48,14 @@ if has("autocmd")
   endif
 "
 " Security ===========================
-"   remember :X to encrypt, to remove passwd :X and leave blank
-setlocal cm=blowfish2
 set noswapfile
 set nobackup
 set nowritebackup
+" Remember :X to encrypt, to remove passwd :X and leave blank
+"    If not using neovim, set cryptmethod to blowfish2
+if !has('nvim')
+    setlocal cm=blowfish2
+endif
 "
 " Fix backspace errors
 set backspace=indent,eol,start
