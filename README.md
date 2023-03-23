@@ -2,11 +2,17 @@
 
 This is a pretty good vim setup. This setup focuses on Python3 and is also set up for Rust and Go development (Javascript still WIP).
 
-## Requirements
+## MacOS Install Prereqs
 
 ```sh
 brew install macvim --override-system-vim
 xargs brew install < homebrew.list
+```
+
+## Debian GNU/Linux Install Prereqs
+
+```sh 
+xargs sudo apt install -y < deb-pkgs.txt
 ```
 
 ## Install
@@ -34,7 +40,7 @@ python3 -m venv venv
 
 Then activate your virtual environment and install dependancies
 
-```zsh
+```sh
 source venv/bin/activate
 pip install -r requirements.txt
 ```
