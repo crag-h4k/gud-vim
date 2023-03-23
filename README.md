@@ -1,6 +1,6 @@
 # Gud Vim
 
-This is a pretty good vim setup. This setup focuses on Python3 and is also set up for Rust development.
+This is a pretty good vim setup. This setup focuses on Python3 and is also set up for Rust and Go development (Javascript still WIP).
 
 ## Requirements
 
