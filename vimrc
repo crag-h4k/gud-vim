@@ -77,6 +77,7 @@ let b:ale_linters={
 \   'python': ['flake8', 'darglint', 'pylint'],
 \   'rust': ['analyzer'],
 \   'yaml': ['cfn-lint', 'yamllint'],
+\   'dockerfile': ['hadolint'],
 \}
 " need to install rust analyyer, rustfmt
 let g:ale_fixers = {
@@ -100,7 +101,11 @@ let g:ale_python_pylint_options = '--ignore=C0103'
 " Rust Stuff ===========================
 autocmd BufNewFile,BufRead *.rs set filetype=rust
 " Go Stuff ===========================
-autocmd BufNewFile,BufRead *. set filetype=go
+autocmd BufNewFile,BufRead *.go set filetype=go
+" Dockerfile
+autocmd BufNewFile,BufRead *Dockerfile* set filetype=dockerfile
+" BUCK2 and Starklark
+autocmd BufNewFile,BufRead BUCK set filetype=starlark
 "
 "  Tabbing and Indents ===========================
 set smarttab

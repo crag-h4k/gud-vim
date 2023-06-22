@@ -66,3 +66,6 @@
 [submodule "bundle/fzf.vim"]
 	path = bundle/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
+[submodule "bundle/starlark.vim"]
+	path = bundle/starlark.vim
+	url = https://github.com/cappyzawa/starlark.vim

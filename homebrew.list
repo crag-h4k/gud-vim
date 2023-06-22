@@ -1,5 +1,6 @@
 cmake
 go
+hadolint
 llvm
 macvim
 mono
