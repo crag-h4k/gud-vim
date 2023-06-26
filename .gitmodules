@@ -69,3 +69,6 @@
 [submodule "bundle/starlark.vim"]
 	path = bundle/starlark.vim
 	url = https://github.com/cappyzawa/starlark.vim
+[submodule "bundle/copilot.vim"]
+	path = bundle/copilot.vim
+	url = https://github.com/github/copilot.vim.git
