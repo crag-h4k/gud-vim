@@ -48,27 +48,24 @@
 [submodule "bundle/vim-python-pep8-indent"]
     path = bundle/vim-python-pep8-indent
     url = https://github.com/Vimjas/vim-python-pep8-indent
-#[submodule bundle/vim-codefmt]
-#    path = bundle/vim-codefmt
-#    url = https://github.com/google/vim-codefmt.git
 [submodule "bundle/vim-log-highlighting"]
-	path = bundle/vim-log-highlighting
-	url = https://github.com/mtdl9/vim-log-highlighting
+    path = bundle/vim-log-highlighting
+    url = https://github.com/mtdl9/vim-log-highlighting
 [submodule "bundle/rust.vim"]
-	path = bundle/rust.vim
-	url = https://github.com/rust-lang/rust.vim.git
+    path = bundle/rust.vim
+    url = https://github.com/rust-lang/rust.vim.git
 [submodule "bundle/Jenkinsfile-vim-syntax"]
-	path = bundle/Jenkinsfile-vim-syntax
-	url = https://github.com/martinda/Jenkinsfile-vim-syntax.git
+    path = bundle/Jenkinsfile-vim-syntax
+    url = https://github.com/martinda/Jenkinsfile-vim-syntax.git
 [submodule "bundle/fzf.vim"]
-	path = bundle/fzf.vim
-	url = https://github.com/junegunn/fzf.vim.git
+    path = bundle/fzf.vim
+    url = https://github.com/junegunn/fzf.vim.git
 [submodule "bundle/starlark.vim"]
-	path = bundle/starlark.vim
-	url = https://github.com/cappyzawa/starlark.vim
+    path = bundle/starlark.vim
+    url = https://github.com/cappyzawa/starlark.vim
 [submodule "bundle/copilot.vim"]
-	path = bundle/copilot.vim
-	url = https://github.com/github/copilot.vim.git
+    path = bundle/copilot.vim
+    url = https://github.com/github/copilot.vim.git
 [submodule "bundle/vim-spl"]
-	path = bundle/vim-spl
-	url = https://github.com/lilyinstarlight/vim-spl
+    path = bundle/vim-spl
+    url = https://github.com/lilyinstarlight/vim-spl
