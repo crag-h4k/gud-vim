@@ -1,5 +1,5 @@
-""" this module is for testing vim config stuff with Python"""
 #!/usr/bin/env python3
+""" this module is for testing vim config stuff with Python"""
 
 from sys import argv
 
