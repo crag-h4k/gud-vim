@@ -3,9 +3,6 @@
 [submodule "bundle/rainbow"]
     path = bundle/rainbow
     url = https://github.com/luochen1990/rainbow
-[submodule "bundle/splunk.vim"]
-    path = bundle/splunk.vim
-    url = https://github.com/vim-scripts/splunk.vim
 [submodule "bundle/vim-fugitive"]
     path = bundle/vim-fugitive
     url = https://github.com/tpope/vim-fugitive
@@ -72,3 +69,6 @@
 [submodule "bundle/copilot.vim"]
 	path = bundle/copilot.vim
 	url = https://github.com/github/copilot.vim.git
+[submodule "bundle/vim-spl"]
+	path = bundle/vim-spl
+	url = https://github.com/lilyinstarlight/vim-spl
