@@ -69,3 +69,6 @@
 [submodule "bundle/vim-spl"]
     path = bundle/vim-spl
     url = https://github.com/lilyinstarlight/vim-spl
+[submodule "bundle/vim-terraform"]
+	path = bundle/vim-terraform
+	url = https://github.com/hashivim/vim-terraform.git

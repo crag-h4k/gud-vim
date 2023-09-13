@@ -9,3 +9,4 @@ python3
 rust
 rust-analyzer
 rustfmt
+tflint

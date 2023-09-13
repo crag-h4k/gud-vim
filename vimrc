@@ -78,6 +78,7 @@ let b:ale_linters={
 \   'rust': ['analyzer'],
 \   'yaml': ['cfn-lint', 'yamllint'],
 \   'dockerfile': ['hadolint'],
+\   'terraform': ['tflint'],
 \}
 " need to install rust analyyer, rustfmt
 let g:ale_fixers = {
