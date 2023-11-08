@@ -127,10 +127,9 @@ nnoremap<C-tab>   :tabn<CR>
 augroup yaml_fix
     au!
     au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=0# indentkeys-=<:>
-    au BufRead,BufNewFile *.template.yaml set filetype=yaml.cloudformation
+    au BufRead,BufNewFile *.template.yaml,cfn.yaml set filetype=yaml.cloudformation
 augroup END
 "
-" au BufRead,BufNewFile *.template.yaml set filetype=yaml.cloudformation
 " Displays '-' for trailing space, '>-' for tabs and '_' for non breakable space
 set listchars=tab:>-,trail:-,nbsp:_
 set list
