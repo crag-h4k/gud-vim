@@ -107,6 +107,13 @@ autocmd BufNewFile,BufRead *.go set filetype=go
 autocmd BufNewFile,BufRead *Dockerfile* set filetype=dockerfile
 " BUCK2 and Starklark
 autocmd BufNewFile,BufRead BUCK set filetype=starlark
+" Jenkinsfile
+augroup set_jenkins_groovy
+    au!
+    au BufNewFile,BufRead *.jenkinsfile,*.Jenkinsfile,Jenkinsfile,jenkinsfile setf groovy
+    "autocmd BufWritePost Jenkinsfile !ssh localhost -p1337 declarative-linter < %
+augroup END
+
 "
 "  Tabbing and Indents ===========================
 set smarttab
