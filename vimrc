@@ -76,9 +76,11 @@ let g:ale_sign_error = '☠'
 let b:ale_linters={
 \   'python': ['flake8', 'darglint', 'pylint'],
 \   'rust': ['analyzer'],
-\   'yaml': ['cfn-lint', 'yamllint'],
+\   'yaml': ['cfn-lint', 'yamllint', 'cfn_nag_scan'],
 \   'dockerfile': ['hadolint'],
 \   'terraform': ['tflint'],
+\   'markdown': ['markdownlint'],
+\   'sql': ['sqlint', 'sql-lint'],
 \}
 " need to install rust analyyer, rustfmt
 let g:ale_fixers = {
@@ -153,6 +155,11 @@ command! W w
 command! WQ wq
 command! Wq wq
 "
+" Get rid of empty lines
+command! Blanks g/^\s*$/d
+" Get rid of trailing spaces
+command! TWS %s/\s\+$//e
+
 " Rainbow Tabs ===========================
 let g:rainbow_active=1
 " supertab ===========================
@@ -202,11 +209,34 @@ set laststatus=2
 set statusline+=%#warningmsg#
 set statusline+=%*
 "
-" Instant Markdown =======================
-" set shell=bash\ -i
+" Markdown ===============================
+"
+let g:ale_markdown_markdownlint_options = '--ignore=MD013'
+let g:vim_markdown_folding_disabled = 1
+let g:markdown_fenced_languages = [
+      \ 'css',
+      \ 'erb=eruby',
+      \ 'go',
+      \ 'html',
+      \ 'javascript',
+      \ 'js=javascript',
+      \ 'json=javascript',
+      \ 'markdown',
+      \ 'ruby',
+      \ 'sass',
+      \ 'sh',
+      \ 'sql',
+      \ 'vim',
+      \ 'xml',
+      \ 'zsh',
+      \ 'yaml'
+      \ ]
 "
 " log-highlighting =======================
 " au rc Syntax log syn keyword logLevelError test
 let g:ale_set_highlights = 0
 let g:LanguageClient_useVirtualText = 0
 "
+"
+" Functions ===========================
+" xnoremap <leader>ips :s/0\+\([0-9a-f]\)/\1/ | *sort n /.*\./ | *sort n /\.\d\+\./ | *sort n /\./ | *sort n u

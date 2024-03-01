@@ -72,3 +72,9 @@
 [submodule "bundle/vim-terraform"]
 	path = bundle/vim-terraform
 	url = https://github.com/hashivim/vim-terraform.git
+[submodule "bundle/github-actions-yaml.vim"]
+	path = bundle/github-actions-yaml.vim
+	url = https://github.com/yasuhiroki/github-actions-yaml.vim.git
+[submodule "bundle/vim-markdown"]
+	path = bundle/vim-markdown
+	url = https://github.com/preservim/vim-markdown.git
