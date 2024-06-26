@@ -31,7 +31,6 @@ set hidden
 inoremap fj <ESC>
 cnoremap fj <ESC>
 "
-"
 " Buffer ===========================
 "    buffers to save cursor location
 " au BufWinLeave mkview
@@ -131,14 +130,7 @@ set shiftwidth=4
 nnoremap<C-S-Enter> :tabe<CR>
 nnoremap<C-S-tab> :tabp<CR>
 nnoremap<C-tab>   :tabn<CR>
-" YAML specific ===========================
-"    Fix auto-indentation for YAML files
-augroup yaml_fix
-    au!
-    au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=0# indentkeys-=<:>
-    au BufRead,BufNewFile *.template.yaml,cfn.yaml set filetype=yaml.cloudformation
-augroup END
-"
+
 " Displays '-' for trailing space, '>-' for tabs and '_' for non breakable space
 set listchars=tab:>-,trail:-,nbsp:_
 set list
@@ -164,7 +156,6 @@ command! TWS %s/\s\+$//e
 let g:rainbow_active=1
 " supertab ===========================
 let g:SuperTabDefaultCompletionType = "<c-n>"
-"
 " Jedi ===========================
 set omnifunc=jedi
 let g:jedi#show_call_signatures = "1"
@@ -237,6 +228,18 @@ let g:markdown_fenced_languages = [
 let g:ale_set_highlights = 0
 let g:LanguageClient_useVirtualText = 0
 "
-"
+" YAML specific ===========================
+"    Fix auto-indentation for YAML files
+augroup yaml_fix
+    au!
+    au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=0# indentkeys-=<:>
+    au BufRead,BufNewFile *.template.yaml,cfn.yaml set filetype=yaml.cloudformation
+augroup END
+" OPA Rego Specific =======================
+let g:formatdef_rego = '"opa fmt"'
+let g:formatters_rego = ['rego']
+let g:autoformat_autoindent = 0
+let g:autoformat_retab = 0
+" au BufWritePre *.rego Autoformat
 " Functions ===========================
 " xnoremap <leader>ips :s/0\+\([0-9a-f]\)/\1/ | *sort n /.*\./ | *sort n /\.\d\+\./ | *sort n /\./ | *sort n u
