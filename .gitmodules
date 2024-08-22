@@ -30,21 +30,12 @@
 [submodule "bundle/dracula"]
     path = bundle/dracula
     url = https://github.com/dracula/vim.git
-[submodule "bundle/python-syntax"]
-    path = bundle/python-syntax
-    url = https://github.com/vim-python/python-syntax
-[submodule "bundle/awesome-vim-colorschemes"]
-    path = bundle/awesome-vim-colorschemes
-    url = https://github.com/rafi/awesome-vim-colorschemes.git
 [submodule "bundle/ale"]
     path = bundle/ale
     url = https://github.com/dense-analysis/ale.git
 [submodule "bundle/supertab"]
     path = bundle/supertab
     url = https://github.com/ervandew/supertab
-[submodule "bundle/jedi-vim"]
-    path = bundle/jedi-vim
-    url = https://github.com/davidhalter/jedi-vim.git
 [submodule "bundle/vim-python-pep8-indent"]
     path = bundle/vim-python-pep8-indent
     url = https://github.com/Vimjas/vim-python-pep8-indent
@@ -72,9 +63,6 @@
 [submodule "bundle/vim-terraform"]
 	path = bundle/vim-terraform
 	url = https://github.com/hashivim/vim-terraform.git
-[submodule "bundle/github-actions-yaml.vim"]
-	path = bundle/github-actions-yaml.vim
-	url = https://github.com/yasuhiroki/github-actions-yaml.vim.git
 [submodule "bundle/vim-markdown"]
 	path = bundle/vim-markdown
 	url = https://github.com/preservim/vim-markdown.git
