@@ -136,7 +136,7 @@ command! Wq wq
 " Get rid of empty lines
 command! Blanks g/^\s*$/d
 " Get rid of trailing spaces
-command! TWS %s/\s\+$//e
+command! WS %s/\s\+$//e
 " Rainbow Tabs ===========================
 let g:rainbow_active=1
 " supertab ===========================
