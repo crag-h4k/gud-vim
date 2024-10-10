@@ -204,3 +204,14 @@ let g:autoformat_retab = 0
 " au BufWritePre *.rego Autoformat
 " Functions ===========================
 " xnoremap <leader>ips :s/0\+\([0-9a-f]\)/\1/ | *sort n /.*\./ | *sort n /\.\d\+\./ | *sort n /\./ | *sort n u
+" Copilot ===========================
+" I have filetypes disabled by default.
+" To enable specific filetypes, add them to the dictionary below.
+let g:copilot_filetypes = {
+    \ '*': v:false,
+    \ 'gitcommit': v:true,
+    \ 'lua': v:true,
+    \ 'markdown': v:true,
+    \ 'vim': v:true,
+    \ 'yaml': v:true,
+    \ }
