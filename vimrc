@@ -106,6 +106,8 @@ augroup set_jenkins_groovy
     au BufNewFile,BufRead *.jenkinsfile,*.Jenkinsfile,Jenkinsfile,jenkinsfile setf groovy
     "autocmd BufWritePost Jenkinsfile !ssh localhost -p1337 declarative-linter < %
 augroup END
+" Terraform (tf) and Terraform Ignore (.tfi)
+autocmd BufNewFile,BufRead *.tf,*.tfi set filetype=terraform
 "  Tabbing and Indents ===========================
 set smarttab
 set expandtab
@@ -215,3 +217,5 @@ let g:copilot_filetypes = {
     \ 'vim': v:true,
     \ 'yaml': v:true,
     \ }
+" Live Diff Updates ===========================
+autocmd CursorMoved,CursorMovedI * diffupdate
