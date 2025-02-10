@@ -60,13 +60,14 @@ set wildmenu
 set wildmode=list:longest,full
 " ALE ===========================
 set omnifunc=ale#completion#OmniFunc
-" let g:ale_completion_enabled = 0
+let g:ale_completion_enabled = 1
 " other fun symbols
 " '⚠' '☂' '☣' '☠'
 let g:ale_sign_warning = '⚠'
 let g:ale_sign_error = '☠'
+" removed 'pylint' from python
 let b:ale_linters={
-\   'python': ['flake8', 'darglint', 'pylint'],
+\   'python': ['flake8', 'pylint', 'isort', 'darglint'],
 \   'rust': ['analyzer'],
 \   'yaml': ['cfn-lint', 'yamllint', 'cfn_nag_scan'],
 \   'dockerfile': ['hadolint'],
@@ -87,7 +88,8 @@ set fileformat=unix
 set omnifunc=pythoncomplete#Complete
 let g:python_highlight_all = 1
 let g:pymode_indent = 0
-let g:ale_python_flake8_options = '--ignore=E501'
+" let g:ale_python_flake8_options = '--ignore=E501 --append-config ~/.config/flake8'
+let g:ale_python_flake8_options = '--append-config ~/.config/flake8'
 " ignore invalid-name convention
 let g:ale_python_pylint_options = '--ignore=C0103'
 let g:python_host_prog='$HOME/.vim/venv/bin/python'
@@ -106,8 +108,15 @@ augroup set_jenkins_groovy
     au BufNewFile,BufRead *.jenkinsfile,*.Jenkinsfile,Jenkinsfile,jenkinsfile setf groovy
     "autocmd BufWritePost Jenkinsfile !ssh localhost -p1337 declarative-linter < %
 augroup END
-" Terraform (tf) and Terraform Ignore (.tfi)
-autocmd BufNewFile,BufRead *.tf,*.tfi set filetype=terraform
+" Set Custom Ignore filetypes ===========================
+" JSON Ignore (.jsoni)
+autocmd BufNewFile,BufRead *.jsoni set filetype=json
+" Python Ignore (.pyi)
+autocmd BufNewFile,BufRead *.pyi set filetype=python
+" Terraform Ignore (.tfi)
+autocmd BufNewFile,BufRead *.tfi set filetype=terraform
+" Yaml Ignore (.yamli, .ymli
+autocmd BufNewFile,BufRead *.yamli,*.ymli set filetype=yaml
 "  Tabbing and Indents ===========================
 set smarttab
 set expandtab
@@ -206,6 +215,7 @@ let g:autoformat_retab = 0
 " au BufWritePre *.rego Autoformat
 " Functions ===========================
 " xnoremap <leader>ips :s/0\+\([0-9a-f]\)/\1/ | *sort n /.*\./ | *sort n /\.\d\+\./ | *sort n /\./ | *sort n u
+command Rando g/^/exec "move " .. rand() % (line('.'))
 " Copilot ===========================
 " I have filetypes disabled by default.
 " To enable specific filetypes, add them to the dictionary below.
