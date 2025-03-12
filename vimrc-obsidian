@@ -1,0 +1,47 @@
+" ===========================
+" This is a gud vim setup for Obsidian. 
+" ===========================
+syntax on
+filetype plugin indent on
+" Colors ===========================
+set t_Co=256
+set encoding=utf-8
+"
+" Basic UI settings ===========================
+set wrap
+set number
+set ruler
+set mouse+=a
+set clipboard=unnamed
+set updatetime=500
+"
+" Searching ===========================
+set ignorecase
+set smartcase
+set incsearch
+set autowrite
+set hidden
+"
+"
+" Security ===========================
+set noswapfile
+set nobackup
+set nowritebackup
+" Remember :X to encrypt, to remove passwd :X and leave blank
+"    If not using neovim, set cryptmethod to blowfish2
+if !has('nvim')
+    setlocal cm=blowfish2
+endif
+"
+" Fix backspace errors ===========================
+set backspace=indent,eol,start
+"
+set wildmenu
+set wildmode=list:longest,full
+set fileformat=unix
+"  Tabbing and Indents ===========================
+set smarttab
+set expandtab
+" copy indent from current line when starting a new line
+set autoindent
+set smartindent

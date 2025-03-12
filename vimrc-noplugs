@@ -1,0 +1,131 @@
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+execute pathogen#infect()
+set runtimepath+=~/.vim
+syntax on
+filetype plugin indent on
+" Colors ===========================
+set t_Co=256
+set encoding=utf-8
+colorscheme dracula
+" Basic UI settings ===========================
+set wrap
+set number
+set ruler
+set mouse+=a
+set clipboard=unnamed
+set updatetime=500
+" Searching ===========================
+set ignorecase
+set smartcase
+set incsearch
+set autowrite
+set hidden
+" Remaps ===========================
+if has("autocmd")
+      au BufReadPost if line("'\"") > 0 && line("'\"") <= line("$") | exe normal! g`\"" | endif
+endif
+if has("autocmd")
+      au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+  endif
+" Security ===========================
+set noswapfile
+set nobackup
+set nowritebackup
+if !has('nvim')
+    setlocal cm=blowfish2
+endif
+set backspace=indent,eol,start
+set wildmenu
+set wildmode=list:longest,full
+" ALE ===========================
+set omnifunc=ale#completion#OmniFunc
+let g:ale_sign_warning = '⚠'
+let g:ale_sign_error = '☠'
+"  Python Stuff ===========================
+au BufNewFile, BufRead *.py set expandtab
+set fileformat=unix
+set omnifunc=pythoncomplete#Complete
+let g:python_highlight_all = 1
+let g:pymode_indent = 0
+let g:ale_python_flake8_options = '--ignore=E501'
+" ignore invalid-name convention
+let g:ale_python_pylint_options = '--ignore=C0103'
+" Rust Stuff ===========================
+autocmd BufNewFile,BufRead *.rs set filetype=rust
+" Go Stuff ===========================
+autocmd BufNewFile,BufRead *.go set filetype=go
+" Dockerfile
+autocmd BufNewFile,BufRead *Dockerfile* set filetype=dockerfile
+" BUCK2 and Starklark
+autocmd BufNewFile,BufRead BUCK set filetype=starlark
+" Jenkinsfile
+augroup set_jenkins_groovy
+    au!
+    au BufNewFile,BufRead *.jenkinsfile,*.Jenkinsfile,Jenkinsfile,jenkinsfile setf groovy
+augroup END
+"  Tabbing and Indents ===========================
+set smarttab
+set expandtab
+set autoindent
+set smartindent
+set cindent
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+" Tab remaps
+nnoremap<C-S-Enter> :tabe<CR>
+nnoremap<C-S-tab> :tabp<CR>
+nnoremap<C-tab>   :tabn<CR>
+" YAML specific ===========================
+augroup yaml_fix
+    au!
+    au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=0# indentkeys-=<:>
+    au BufRead,BufNewFile *.template.yaml,cfn.yaml set filetype=yaml.cloudformation
+augroup END
+set listchars=tab:>-,trail:-,nbsp:_
+set list
+" No Noise ===========================
+set noerrorbells
+set novisualbell
+set belloff=all
+set tm=500
+"  Typos ===========================
+command! Q q
+command! W w
+command! WQ wq
+command! Wq wq
+" Get rid of empty lines
+command! Blanks g/^\s*$/d
+" Get rid of trailing spaces
+command! TWS %s/\s\+$//e
+" Rainbow Tabs ===========================
+let g:rainbow_active=1
+" supertab ===========================
+let g:SuperTabDefaultCompletionType = "<c-n>"
+" Jedi ===========================
+set omnifunc=jedi
+let g:jedi#show_call_signatures = "1"
+set splitright
+let g:jedi#use_splits_not_buffers = "right"
+let g:jedi#completor_python_binary='$HOME/.vim/venv/bin/python'
+let g:python_host_prog='$HOME/.vim/venv/bin/python'
+let g:python3_host_prog='$HOME/.vim/venv/bin/python3'
+let g:jedi#environment_path = "venv"
+let g:jedi#auto_initialization = 1
+let g:jedi#completions_enabled = 1
+let g:jedi#auto_vim_configuration = 1
+let g:jedi#popup_on_dot = 1
+let g:jedi#show_call_signatures = "1"
+let g:jedi#show_call_signatures_delay = 0
+let g:jedi#enable_speed_debugging= 1
+" NERDTree  ===========================
+map <C-n> :NERDTreeToggle<CR>
+"
+let g:lightline = { 'colorscheme': 'darcula' }
+let g:airline#extensions#ale#enabled = 1
+set laststatus=2
+set statusline+=%#warningmsg#
+set statusline+=%*
+"
+let g:ale_set_highlights = 0
+let g:LanguageClient_useVirtualText = 0
