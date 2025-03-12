@@ -61,11 +61,17 @@
     path = bundle/vim-spl
     url = https://github.com/lilyinstarlight/vim-spl
 [submodule "bundle/vim-terraform"]
-	path = bundle/vim-terraform
-	url = https://github.com/hashivim/vim-terraform.git
+    path = bundle/vim-terraform
+    url = https://github.com/hashivim/vim-terraform.git
 [submodule "bundle/vim-markdown"]
-	path = bundle/vim-markdown
-	url = https://github.com/preservim/vim-markdown.git
+    path = bundle/vim-markdown
+    url = https://github.com/preservim/vim-markdown.git
 [submodule "bundle/vim-rego"]
-	path = bundle/vim-rego
-	url = https://github.com/tsandall/vim-rego.git
+    path = bundle/vim-rego
+    url = https://github.com/tsandall/vim-rego.git
+[submodule "bundle/vim-terraform-completion"]
+	path = bundle/vim-terraform-completion
+	url = git@github.com:juliosueiras/vim-terraform-completion.git
+[submodule "bundle/deoplete.nvim"]
+	path = bundle/deoplete.nvim
+	url = git@github.com:shougo/deoplete.nvim

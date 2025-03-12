@@ -175,27 +175,32 @@ set laststatus=2
 set statusline+=%#warningmsg#
 set statusline+=%*
 " Markdown ===============================
-let g:ale_markdown_markdownlint_options = '--ignore=MD013'
-let g:vim_markdown_folding_disabled = 1
-let g:markdown_fenced_languages = [
-      \ 'css',
-      \ 'erb=eruby',
-      \ 'go',
-      \ 'html',
-      \ 'javascript',
-      \ 'js=javascript',
-      \ 'json=javascript',
-      \ 'markdown',
-      \ 'ruby',
-      \ 'sass',
-      \ 'sh',
-      \ 'sql',
-      \ 'vim',
-      \ 'xml',
-      \ 'zsh',
-      \ 'yaml'
+augroup markdown_fix
+    au!
+    au FileType markdown setlocal ts=4 sts=4 sw=4 textwidth=80
+    " au FileType markdown setlocal ts=4 sts=4 sw=4 textwidth=80 formatoptions+=a
+    au BufRead,BufNewFile *.md,*.mdi set filetype=markdown
+    let g:ale_markdown_markdownlint_options = '--ignore=MD013'
+    let g:vim_markdown_folding_disabled = 1
+    let g:markdown_fenced_languages = [
+          \ 'css',
+          \ 'erb=eruby',
+          \ 'go',
+          \ 'html',
+          \ 'javascript',
+          \ 'js=javascript',
+          \ 'json=javascript',
+          \ 'markdown',
+          \ 'ruby',
+          \ 'sass',
+          \ 'sh',
+          \ 'sql',
+          \ 'vim',
+          \ 'xml',
+          \ 'zsh',
+          \ 'yaml'
       \ ]
-" log-highlighting =======================
+augroup END" log-highlighting =======================
 " au rc Syntax log syn keyword logLevelError test
 let g:ale_set_highlights = 0
 let g:LanguageClient_useVirtualText = 0
@@ -229,3 +234,17 @@ let g:copilot_filetypes = {
     \ }
 " Live Diff Updates ===========================
 autocmd CursorMoved,CursorMovedI * diffupdate
+" Deoplete ===========================
+" let g:deoplete#enable_at_startup = 1
+" Deoplete Terraform ===========================
+" let g:deoplete#omni_patterns = {}
+
+" call deoplete#custom#option('omni_patterns', {
+" \ 'complete_method': 'omnifunc',
+" \ 'terraform': '[^ *\t"{=$]\w*',
+" \})
+
+"call deoplete#initialize()
+" let g:vimwiki_folding = 'custom'
+set foldmethod=manual
+set foldlevelstart=99
