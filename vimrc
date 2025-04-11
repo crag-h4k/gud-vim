@@ -1,6 +1,6 @@
-" ===========================
+" ============================================================================
 " This is a gud vim setup. Remember to update the submodules in bundle/
-" ===========================
+" ============================================================================
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 set runtimepath+=~/.vim
@@ -10,40 +10,39 @@ filetype plugin indent on
 set t_Co=256
 set encoding=utf-8
 colorscheme dracula
-" Basic UI settings ===========================
+" Basic UI settings =================
 set wrap
-set number
+" Line Numbers =====================
+set number relativenumber
+" In normal mode, the line number is relative to the cursor position,
+" in insert mode, the line number is absolute.
+" set number
+" augroup numbertoggle
+"   au!
+"  au BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+" au BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+" augroup END
 set ruler
 set mouse+=a
 set clipboard=unnamed
 set updatetime=500
-" Searching ===========================
+" Searching ===============================
 set ignorecase
 set smartcase
 set incsearch
 set autowrite
 set hidden
-" Remaps ===========================
+" Remaps =================================
 " MacBook Touchbar
 inoremap fj <ESC>
 cnoremap fj <ESC>
-" Buffer ===========================
-"    buffers to save cursor location
-" au BufWinLeave mkview
-" au BufWinEnter silent loadview
-if has("autocmd")
-      au BufReadPost if line("'\"") > 0 && line("'\"") <= line("$") | exe normal! g`\"" | endif
-endif
-" Buffer ===========================
-" set buffers to leave off where left
-" au BufWinLeave * mkview
+" Buffer =================================
 " buffers to save cursor location
-" au BufWinEnter * silent loadview
 if has("autocmd")
       au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-  endif
+endif
 "
-" Security ===========================
+" Security ================================
 set noswapfile
 set nobackup
 set nowritebackup
@@ -53,12 +52,12 @@ if !has('nvim')
     setlocal cm=blowfish2
 endif
 "
-" Fix backspace errors ===========================
+" Fix backspace errors =====================
 set backspace=indent,eol,start
 "
 set wildmenu
 set wildmode=list:longest,full
-" ALE ===========================
+" ALE =======================================
 set omnifunc=ale#completion#OmniFunc
 let g:ale_completion_enabled = 1
 " other fun symbols
@@ -66,6 +65,7 @@ let g:ale_completion_enabled = 1
 let g:ale_sign_warning = '⚠'
 let g:ale_sign_error = '☠'
 " removed 'pylint' from python
+" \   'terraform': ['tflint', 'terraform_lsp'],
 let b:ale_linters={
 \   'python': ['flake8', 'pylint', 'isort', 'darglint'],
 \   'rust': ['analyzer'],
@@ -81,9 +81,8 @@ let g:ale_fixers = {
 \}
 " Set this in your vimrc file to disabling highlighting
 " let g:ale_set_highlights = 0
-"  Python Stuff ===========================
+"  Python Stuff ================================
 " PEP 8 Indentation
-au BufNewFile, BufRead *.py set expandtab
 set fileformat=unix
 set omnifunc=pythoncomplete#Complete
 let g:python_highlight_all = 1
@@ -94,29 +93,34 @@ let g:ale_python_flake8_options = '--append-config ~/.config/flake8'
 let g:ale_python_pylint_options = '--ignore=C0103'
 let g:python_host_prog='$HOME/.vim/venv/bin/python'
 let g:python3_host_prog='$HOME/.vim/venv/bin/python3'
-" Rust Stuff ===========================
-autocmd BufNewFile,BufRead *.rs set filetype=rust
-" Go Stuff ===========================
-autocmd BufNewFile,BufRead *.go set filetype=go
-" Dockerfile
-autocmd BufNewFile,BufRead *Dockerfile* set filetype=dockerfile
-" BUCK2 and Starklark
-autocmd BufNewFile,BufRead BUCK set filetype=starlark
-" Jenkinsfile
-augroup set_jenkins_groovy
+"
+" Syntax Highlighting for filetype ===============
+" and .*i ignore files =============================
+augroup ensure_filetype
     au!
-    au BufNewFile,BufRead *.jenkinsfile,*.Jenkinsfile,Jenkinsfile,jenkinsfile setf groovy
-    "autocmd BufWritePost Jenkinsfile !ssh localhost -p1337 declarative-linter < %
+    " BUCK2 and Starlark
+    au BufNewFile,BufRead BUCK,BUCKi setf starlark
+    " Go
+    au BufNewFile,BufRead *.go,*.goi setf go
+    " Dockerfiles
+    au BufNewFile,BufRead *Dockerfile* setf dockerfile
+    " Jenkinsfile
+    au BufNewFile,BufRead *jenkinsfile*,*Jenkinsfile* setf groovy
+    " JSON
+    au BufNewFile,BufRead *.json* setf json
+    " Markdown
+    au BufNewFile,BufRead *.md,*.mdi setf markdown
+    " Python
+    au BufNewFile,BufRead *.py,*.pyi setf python
+    " Rust
+    au BufNewFile,BufRead *.rs,*.rsi setf rust
+    " Terraform
+    au BufNewFile,BufRead *.tf,*.tfi setf terraform
+    " Yaml
+    au BufNewFile,BufRead *.y*ml setf yaml
+    " Yaml Cloudformation
+    au BufNewFile,BufRead *.cfn.y*ml*,*.template.y*ml* setf yaml.cloudformation
 augroup END
-" Set Custom Ignore filetypes ===========================
-" JSON Ignore (.jsoni)
-autocmd BufNewFile,BufRead *.jsoni set filetype=json
-" Python Ignore (.pyi)
-autocmd BufNewFile,BufRead *.pyi set filetype=python
-" Terraform Ignore (.tfi)
-autocmd BufNewFile,BufRead *.tfi set filetype=terraform
-" Yaml Ignore (.yamli, .ymli
-autocmd BufNewFile,BufRead *.yamli,*.ymli set filetype=yaml
 "  Tabbing and Indents ===========================
 set smarttab
 set expandtab
@@ -178,8 +182,7 @@ set statusline+=%*
 augroup markdown_fix
     au!
     au FileType markdown setlocal ts=4 sts=4 sw=4 textwidth=80
-    " au FileType markdown setlocal ts=4 sts=4 sw=4 textwidth=80 formatoptions+=a
-    au BufRead,BufNewFile *.md,*.mdi set filetype=markdown
+    au BufRead,BufNewFile *.md,*.mdi setf markdown
     let g:ale_markdown_markdownlint_options = '--ignore=MD013'
     let g:vim_markdown_folding_disabled = 1
     let g:markdown_fenced_languages = [
@@ -209,7 +212,6 @@ let g:LanguageClient_useVirtualText = 0
 augroup yaml_fix
     au!
     au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=0# indentkeys-=<:>
-    au BufRead,BufNewFile *.template.yaml,cfn.yaml set filetype=yaml.cloudformation
     let g:ale_yaml_yamllint_options='-d "{extends: relaxed, rules: {line-length: disable}}"'
 augroup END
 " OPA Rego Specific =======================
@@ -233,7 +235,7 @@ let g:copilot_filetypes = {
     \ 'yaml': v:true,
     \ }
 " Live Diff Updates ===========================
-autocmd CursorMoved,CursorMovedI * diffupdate
+au CursorMoved,CursorMovedI * diffupdate
 " Deoplete ===========================
 " let g:deoplete#enable_at_startup = 1
 " Deoplete Terraform ===========================
