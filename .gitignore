@@ -8,3 +8,4 @@ autosave/*
 venv/*
 view/*
 !view/test.py
+vimrc.ig

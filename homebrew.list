@@ -10,3 +10,4 @@ rust
 rust-analyzer
 rustfmt
 tflint
+yamllint

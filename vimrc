@@ -60,8 +60,8 @@ let g:ale_completion_enabled = 1
 " '⚠' '☂' '☣' '☠'
 let g:ale_sign_warning = '⚠'
 let g:ale_sign_error = '☠'
-" \ 'terraform': ['tflint', 'terraform_lsp'],
 " removed 'pylint' from python
+" \ 'terraform': ['tflint', 'terraform_lsp'],
 let b:ale_linters={
  \ 'python': ['flake8', 'pylint', 'isort', 'darglint'],
  \ 'rust': ['analyzer'],
@@ -93,7 +93,7 @@ let g:python3_host_prog='$HOME/.vim/venv/bin/python3'
 " BUCK2 and Starlark
 au BufNewFile,BufRead BUCK,BUCKi setf starlark
 " Go
-au BufNewFile,BufRead *.go,*.goi setf go
+au BufNewFile,BufRead *.go* setf go
 " Dockerfiles
 au BufNewFile,BufRead *Dockerfile* setf dockerfile
 " Jenkinsfile
@@ -101,7 +101,7 @@ au BufNewFile,BufRead *jenkinsfile*,*Jenkinsfile* setf groovy
 " JSON
 au BufNewFile,BufRead *.json* setf json
 " Markdown
-au BufNewFile,BufRead *.md,*.mdi setf markdown
+au BufNewFile,BufRead *.md*,*.mdi setf markdown
 " Python
 au BufNewFile,BufRead *.py,*.pyi setf python
 " Rust
@@ -109,7 +109,7 @@ au BufNewFile,BufRead *.rs,*.rsi setf rust
 " Terraform
 au BufNewFile,BufRead *.tf,*.tfi setf terraform
 " Yaml
-au BufNewFile,BufRead *.y*ml setf yaml
+au BufNewFile,BufRead *.y*ml*,*.yaml.ig setf yaml
 " Yaml Cloudformation
 au BufNewFile,BufRead *.cfn.y*ml*,*.template.y*ml* setf yaml.cloudformation
 " augroup END
@@ -146,8 +146,6 @@ command! Blanks g/^\s*$/d
 command! WS %s/\s\+$//e
 " Rainbow Tabs ===========================
 let g:rainbow_active=1
-" supertab ===========================
-let g:SuperTabDefaultCompletionType = "<c-n>"
 set splitright
 " NERDTree  ===========================
 " remap nerdtree to Ctrl + n
@@ -205,7 +203,8 @@ let g:LanguageClient_useVirtualText = 0
 augroup yaml_fix
     au!
     au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=0# indentkeys-=<:>
-    let g:ale_yaml_yamllint_options='-d "{extends: relaxed, rules: {line-length: disable}}"'
+    let g:ale_yaml_yamllint_options='-c ~/.config/yamllint/config'
+    " let g:ale_yaml_yamllint_options='-d "{extends: relaxed, rules: {line-length: disable}}"'
 augroup END
 " OPA Rego Specific =======================
 let g:formatdef_rego = '"opa fmt"'
@@ -241,3 +240,5 @@ au CursorMoved,CursorMovedI * diffupdate
 " let g:vimwiki_folding = 'custom'
 set foldmethod=manual
 set foldlevelstart=99
+
+" luafile ~/.vim/lua/completion.lua
