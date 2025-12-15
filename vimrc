@@ -54,8 +54,13 @@ set backspace=indent,eol,start
 set wildmenu
 set wildmode=list:longest,full
 " ALE =======================================
-set omnifunc=ale#completion#OmniFunc
-let g:ale_completion_enabled = 1
+if has('nvim')
+    " Use nvim-cmp for completion; keep ALE focused on linting in Neovim
+    let g:ale_completion_enabled = 0
+else
+    set omnifunc=ale#completion#OmniFunc
+    let g:ale_completion_enabled = 1
+endif
 " other fun symbols
 " '⚠' '☂' '☣' '☠'
 let g:ale_sign_warning = '⚠'
@@ -80,7 +85,9 @@ let g:ale_fixers = {
 "  Python Stuff ================================
 " PEP 8 Indentation
 set fileformat=unix
-set omnifunc=pythoncomplete#Complete
+if !has('nvim')
+    set omnifunc=pythoncomplete#Complete
+endif
 let g:python_highlight_all = 1
 let g:pymode_indent = 0
 let g:ale_python_flake8_options = '--append-config ~/.config/flake8'
@@ -183,7 +190,6 @@ augroup markdown_fix
      \ 'javascript',
      \ 'js=javascript',
      \ 'json=javascript',
-     \ 'markdown',
      \ 'ruby',
      \ 'sass',
      \ 'sh',
