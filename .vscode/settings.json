@@ -1,0 +1,6 @@
+{
+  "vscode-neovim.neovimInitVimPaths": {
+    "darwin": "/Users/dane/.vim/init.lua"
+  }
+}
+

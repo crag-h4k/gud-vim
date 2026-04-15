@@ -61,11 +61,25 @@ mkdir -p $HOME/.config
 ln -s ~/.vim ~/.config/nvim
 ```
 
-For jedi to work we need to install python's `neovim` module into the system's`PYTHONPATH`.
+For jedi to work we need to install python's `neovim` module into the system's `PYTHONPATH`.
 
 ```sh
 deactivate
 pip3 install neovim --user
 ```
 
-After this neovim should work! Please let me know if there are any issues.
+To install LSPs:
+
+```
+:Lazy sync
+```
+
+Confirm LSPs are installed:
+
+```
+:Mason
+```
+
+Then restart NeoVim :)
+
+After this NeoVim should work! 

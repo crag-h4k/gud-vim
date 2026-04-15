@@ -4,12 +4,13 @@
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 set runtimepath+=~/.vim
+
 syntax on
 filetype plugin indent on
 " Colors ===========================
 set t_Co=256
 set encoding=utf-8
-colorscheme dracula
+silent! colorscheme dracula
 " Basic UI settings =================
 set wrap
 " Line Numbers =====================
@@ -44,11 +45,8 @@ endif
 set noswapfile
 set nobackup
 set nowritebackup
-" Remember :X to encrypt, to remove passwd :X and leave blank
-"    If not using neovim, set cryptmethod to blowfish2
-if !has('nvim')
-    setlocal cm=blowfish2
-endif
+" Remember :X to encrypt, to remove passwd :X and leave blank.
+set cryptmethod=blowfish2
 "
 set backspace=indent,eol,start
 set wildmenu
@@ -75,11 +73,9 @@ let g:ale_fixers = {
  \ 'rust': ['rustfmt', 'trim_whitespace', 'remove_trailing_lines'],
  \ 'python': ['trim_whitespace', 'remove_trailing_lines']
 \}
-" Set this in your vimrc file to disabling highlighting
-" let g:ale_set_highlights = 0
 "  Python Stuff ================================
 " PEP 8 Indentation
-set fileformat=unix
+setglobal fileformat=unix
 set omnifunc=pythoncomplete#Complete
 let g:python_highlight_all = 1
 let g:pymode_indent = 0
@@ -183,7 +179,6 @@ augroup markdown_fix
      \ 'javascript',
      \ 'js=javascript',
      \ 'json=javascript',
-     \ 'markdown',
      \ 'ruby',
      \ 'sass',
      \ 'sh',
@@ -196,8 +191,8 @@ augroup markdown_fix
 augroup END
 " log-highlighting =======================
 " au rc Syntax log syn keyword logLevelError test
-let g:ale_set_highlights = 0
 let g:LanguageClient_useVirtualText = 0
+let g:ale_set_highlights = 0
 " YAML specific ===========================
 "    Fix auto-indentation for YAML files
 augroup yaml_fix
@@ -214,7 +209,7 @@ let g:autoformat_retab = 0
 " au BufWritePre *.rego Autoformat
 " Functions ===========================
 " xnoremap <leader>ips :s/0\+\([0-9a-f]\)/\1/ | *sort n /.*\./ | *sort n /\.\d\+\./ | *sort n /\./ | *sort n u
-command Rando g/^/exec "move " .. rand() % (line('.'))
+command! Rando g/^/exec "move " .. rand() % (line('.'))
 " Copilot ===========================
 " I have filetypes disabled by default.
 " To enable specific filetypes, add them to the dictionary below.
@@ -237,8 +232,8 @@ au CursorMoved,CursorMovedI * diffupdate
 " \ 'terraform': '[^ *\t"{=$]\w*',
 " \})
 "call deoplete#initialize()
-" let g:vimwiki_folding = 'custom'
 set foldmethod=manual
 set foldlevelstart=99
+" let g:vimwiki_folding = 'custom'
 
 " luafile ~/.vim/lua/completion.lua
