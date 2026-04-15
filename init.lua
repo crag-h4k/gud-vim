@@ -200,6 +200,9 @@ vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
 vim.opt.foldmethod = "manual"
 vim.opt.foldlevelstart = 99
 
+-- Silence LSP log - default level floods lsp.log with workspace-root errors
+vim.lsp.set_log_level("OFF")
+
 -- Diagnostics
 vim.diagnostic.config({
   signs = {
