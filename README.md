@@ -1,19 +1,29 @@
 # Gud Vim
 
-This is a pretty good vim setup. This setup focuses on Python3 and is
-also set up for Rust and Go development (Javascript still WIP).
+A pretty good vim setup. Python3-first, also wired for Rust and Go
+(JavaScript still WIP). Works with both Vim and Neovim: the Neovim entrypoint
+is a file-level symlink to `init.lua` in this repo.
 
-This configuration works with neovim with a couple additional steps -
-see **`neovim`** section below for more details.
+## Table of Contents
 
-## MacOS Install Prereqs
+- [Prereqs](#prereqs)
+  - [macOS](#macos)
+  - [Debian / Ubuntu](#debian--ubuntu)
+- [Install](#install)
+- [Symlink management](#symlink-management)
+- [Python virtualenv](#python-virtualenv)
+- [Neovim setup](#neovim-setup)
+
+## Prereqs
+
+### macOS
 
 ```sh
 brew install macvim --override-system-vim
 xargs brew install < homebrew.list
 ```
 
-## Debian GNU/Linux Install Prereqs
+### Debian / Ubuntu
 
 ```sh
 xargs sudo apt install -y < deb-pkgs.txt
@@ -22,64 +32,61 @@ xargs sudo apt install -y < deb-pkgs.txt
 ## Install
 
 ```sh
-BAK=$HOME/.vim-$(date +%d-%b-%Y).bak
-mkdir $BAK
-mv $HOME/.vim* $BAK/.
-mv $HOME/.darglint $BAK/.
-git clone https://github.com/crag-h4k/gud-vim.git $HOME/.vim --recursive
-ln -s $HOME/.vim/vimrc $HOME/.vimrc
-ln -s $HOME/.vim/darglint $HOME/.darglint
-ln -s $HOME/.vim/configs/yamllint $HOME/.config/yamllint
-cd $HOME/.vim
-git submodule update --recursive --remote bundle/*
+BAK="$HOME/.vim-$(date +%d-%b-%Y).bak"
+mkdir -p "$BAK"
+mv "$HOME"/.vim* "$BAK"/ 2>/dev/null || true
+mv "$HOME/.darglint" "$BAK"/ 2>/dev/null || true
+
+git clone --recursive https://github.com/crag-h4k/gud-vim.git "$HOME/.vim"
+make -C "$HOME/.vim" install
 ```
 
-I have this setup to use a Python3 Virtual Environment
-
-Create a virtual environment with the following commands:
+## Symlink management
 
 ```sh
-cd $HOME/.vim
+make install     # links vimrc, darglint, init.lua, yamllint config
+make uninstall   # removes the managed symlinks
+make relink      # uninstall + install
+make check       # report status of each managed link
+```
+
+Links created by `make install`:
+
+| Source (in repo)        | Destination                      |
+| ----------------------- | -------------------------------- |
+| `vimrc`                 | `~/.vimrc`                       |
+| `darglint`              | `~/.darglint`                    |
+| `init.lua`              | `~/.config/nvim/init.lua`        |
+| `configs/yamllint`      | `~/.config/yamllint`             |
+
+`make install` refuses to clobber real files; if any destination exists as a
+regular file, that entry is skipped until you remove or back it up.
+
+## Python virtualenv
+
+```sh
+cd "$HOME/.vim"
 python3 -m venv venv
-```
-
-Then activate your virtual environment and install dependancies
-
-```sh
 source venv/bin/activate
 pip3 install -r requirements.txt
 ```
 
-### Huzzah! All done
+## Neovim setup
 
-## `neovim` setup
-
-Create a directory and symlink so that `neovim` knows where to look.
-
-```sh
-mkdir -p $HOME/.config
-ln -s ~/.vim ~/.config/nvim
-```
-
-For jedi to work we need to install python's `neovim` module into the system's `PYTHONPATH`.
+`make install` already symlinks `~/.config/nvim/init.lua`, so Neovim will load
+this repo's config directly. Install the Python provider into the system
+Python (not the venv above):
 
 ```sh
 deactivate
-pip3 install neovim --user
+pip3 install --user neovim
 ```
 
-To install LSPs:
+Inside Neovim:
 
-```
+```vim
 :Lazy sync
-```
-
-Confirm LSPs are installed:
-
-```
 :Mason
 ```
 
-Then restart NeoVim :)
-
-After this NeoVim should work! 
+Restart Neovim and you are good.
