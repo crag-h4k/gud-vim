@@ -7,27 +7,18 @@ is a file-level symlink to `init.lua` in this repo.
 ## Table of Contents
 
 - [Prereqs](#prereqs)
-  - [macOS](#macos)
-  - [Debian / Ubuntu](#debian--ubuntu)
 - [Install](#install)
+- [Packages](#packages)
 - [Symlink management](#symlink-management)
 - [Python virtualenv](#python-virtualenv)
 - [Neovim setup](#neovim-setup)
 
 ## Prereqs
 
-### macOS
+- macOS: Homebrew
+- Debian / Ubuntu: `apt-get`, with sudo
 
-```sh
-brew install macvim --override-system-vim
-xargs brew install < homebrew.list
-```
-
-### Debian / Ubuntu
-
-```sh
-xargs sudo apt install -y < deb-pkgs.txt
-```
+Package installation is handled via `make packages` (see [Packages](#packages)).
 
 ## Install
 
@@ -38,8 +29,23 @@ mv "$HOME"/.vim* "$BAK"/ 2>/dev/null || true
 mv "$HOME/.darglint" "$BAK"/ 2>/dev/null || true
 
 git clone --recursive https://github.com/crag-h4k/gud-vim.git "$HOME/.vim"
+make -C "$HOME/.vim" packages   # optional: brew/apt install
 make -C "$HOME/.vim" install
 ```
+
+## Packages
+
+```sh
+make packages
+```
+
+Reads from the repo-root lists:
+
+- `homebrew.list` (macOS): macvim, rust, go, llvm, nodejs, python3, tflint,
+  yamllint, and more.
+- `deb-pkgs.txt` (Debian/Ubuntu): vim-nox, python3-dev.
+
+Safe to re-run. See `scripts/install-packages.sh`.
 
 ## Symlink management
 
