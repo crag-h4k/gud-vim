@@ -1,5 +1,8 @@
 # Gud Vim
 
+> [!WARNING]
+> This repository is deprecated and no longer maintained. Use [crag-h4k/dotfiles](https://github.com/crag-h4k/dotfiles) instead.
+
 A pretty good vim setup. Python3-first, also wired for Rust and Go
 (JavaScript still WIP). Works with both Vim and Neovim: the Neovim entrypoint
 is a file-level symlink to `init.lua` in this repo.
